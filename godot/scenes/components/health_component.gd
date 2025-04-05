@@ -1,9 +1,11 @@
-extends Node
+extends Node2D
 class_name HealthComponent
 
 signal on_health_changed
 signal on_death
 
+@export var death_particle: GPUParticles2D = null
+@export var death_audio: AudioStreamPlayer2D = null
 @export var max_health: int = 1
 var health: int = 0
 
@@ -25,4 +27,9 @@ func heal(heal_amount: int) -> void:
   emit_signal("on_health_changed", health)
 
 func die() -> void:
+  if death_particle:
+    death_particle.emitting = true
+  if death_audio:
+    death_audio.play()
+
   emit_signal("on_death")
