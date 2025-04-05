@@ -3,11 +3,13 @@ class_name MovingBullet
 
 @export var hitter: BulletHitter
 @export var move_values: BulletMovementValues
+@export var animated_sprite: AnimatedSprite2D
 
 func shoot(
 		team: Global.TEAM, direction: Vector2, damage: float = 0, hit_count: int = 1,
 		infinite_hits: bool = false, speed: float = 0,
-		acceleration: float = 0, can_go_negative = false
+		acceleration: float = 0, can_go_negative = false,
+		sprite_frames: SpriteFrames = null
 	):
 	hitter.damage = damage
 	hitter.hit_count = hit_count
@@ -21,6 +23,9 @@ func shoot(
 	move_values.direction = direction
 	move_values.can_go_negative = can_go_negative
 	move_values.root = self
+	if animated_sprite != null && sprite_frames != null:
+		animated_sprite.sprite_frames = sprite_frames
+		animated_sprite.play()
 	
 func stop():
 	print("bullet stopped")
@@ -28,4 +33,3 @@ func stop():
 	
 func hit():
 	print("bullet hit something")
-	pass

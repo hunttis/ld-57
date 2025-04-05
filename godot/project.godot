@@ -110,7 +110,8 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [layer_names]
 
-2d_physics/layer_2="Hit"
+2d_physics/layer_2="Hittables"
+2d_physics/layer_3="Bullets"
 
 [rendering]
 

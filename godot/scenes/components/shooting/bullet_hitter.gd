@@ -6,7 +6,7 @@ var hit_count = 1
 var infinite_hits: bool = false
 var damage: float = 0
 var duration: float
-var has_duration: bool
+var has_duration: bool = false
 
 var hits = {}
 
@@ -15,7 +15,7 @@ signal hit_something()
 
 func _process(delta):
 	if !has_duration:
-		pass
+		return
 	duration -= delta
 	if duration <= 0:
 		stopped.emit()
@@ -24,14 +24,13 @@ func _on_area_entered(area: Area2D):
 	if area is not Hittable:
 		stopped.emit()
 	if hits.has(area):
-		pass
+		return
 	if area.team == team:
-		pass
-		pass
+		return
 	area.hit(damage)
 	hit_something.emit()
 	if infinite_hits:
-		pass
+		return
 	hits.set(area, null)
 	if hits.size() >= hit_count:
 		stopped.emit()
