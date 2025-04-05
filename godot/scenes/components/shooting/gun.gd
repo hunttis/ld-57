@@ -1,4 +1,5 @@
 extends Node2D
+class_name Gun
 
 var can_shoot_time_msec: int = 0
 
