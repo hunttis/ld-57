@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Texture2D" uid="uid://bpo015f7sbgq4" path="res://images/bat_front.png" id="1_gmlin"]
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://bpng8hxi1kaob" path="res://images/bat_side.png" id="2_lvxji"]
-[ext_resource type="Script" path="res://scenes/components/health_component.gd" id="3_p47bc"]
+[ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dc2y7kqkehsn4" path="res://sounds/death.wav" id="5_p47bc"]
-[ext_resource type="Script" path="res://scenes/components/shooting/hittable.gd" id="6_fwjsc"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="6_fwjsc"]
 [ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="7_hdgt7"]
 [ext_resource type="PackedScene" uid="uid://crpb06f8dttmu" path="res://scenes/components/shooting/player_straight_bullet.tscn" id="8_augf5"]
 
@@ -67,6 +67,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(20, 8)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lvxji"]
+size = Vector2(2, 2)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lvxji"]
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -78,14 +81,8 @@ angular_velocity_min = -393.31
 angular_velocity_max = -101.14
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lvxji"]
-size = Vector2(2, 2)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lvxji")
-speed = null
-acceleration = null
-deceleration = null
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fm80t")
@@ -116,8 +113,8 @@ team = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 250
-process_material = SubResource("ParticleProcessMaterial_lvxji")
 texture = SubResource("PlaceholderTexture2D_lvxji")
+process_material = SubResource("ParticleProcessMaterial_lvxji")
 
 [node name="PlayerDefaultGun" parent="." instance=ExtResource("7_hdgt7")]
 cooldown = 0.2

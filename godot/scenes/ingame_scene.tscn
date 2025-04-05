@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://775s2w2dy5xy" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="4_7v5ay"]
+[ext_resource type="PackedScene" uid="uid://kouan0th5t80" path="res://scenes/terrain/terrain_scene.tscn" id="5_2577t"]
+[ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="6_gadrd"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -21,3 +23,16 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("4_7v5ay")]
 position = Vector2(287, 185)
+speed = null
+acceleration = null
+deceleration = null
+
+[node name="TerrainScene" parent="." instance=ExtResource("5_2577t")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+z_index = -1000
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_gadrd")
