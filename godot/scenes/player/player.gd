@@ -3,7 +3,8 @@ class_name Player
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var default_gun: Gun = $PlayerDefaultGun
+@onready var default_gun: Gun = $AnimatedSprite/PlayerDefaultGun
+
 
 @export var speed = 300.0
 @export_range(1.0, 5.0) var acceleration: float = 1.0
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity / deceleration
 		sprite.play("idle")
-	if velocity.x != 0:
-		last_direction = sign(velocity.x)
+	if direction.x != 0:
+		last_direction = sign(direction.x)
 
 	move_and_slide()

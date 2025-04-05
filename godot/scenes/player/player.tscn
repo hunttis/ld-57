@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
-[ext_resource type="SpriteFrames" uid="uid://dautkiri0bmih" path="res://images/bat_sprite.tres" id="2_75vfm"]
+[ext_resource type="SpriteFrames" uid="uid://dqc571m4e2y8g" path="res://images/bat_sprite.tres" id="2_75vfm"]
 [ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dc2y7kqkehsn4" path="res://sounds/death.wav" id="5_p47bc"]
+[ext_resource type="PackedScene" path="res://savegame/player_straight_bullet.tscn" id="6_75vfm"]
 [ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="7_hdgt7"]
-[ext_resource type="PackedScene" uid="uid://crpb06f8dttmu" path="res://scenes/components/shooting/player_straight_bullet.tscn" id="8_augf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(20, 8)
@@ -32,6 +32,15 @@ sprite_frames = ExtResource("2_75vfm")
 animation = &"move"
 frame_progress = 0.71321
 
+[node name="PlayerDefaultGun" parent="AnimatedSprite" instance=ExtResource("7_hdgt7")]
+position = Vector2(15, 5)
+cooldown = 0.1
+team = 1
+bullet_scene = ExtResource("6_75vfm")
+bullet_speed = 500.0
+bullet_damage = 1.0
+bullet_hit_count = 1
+
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]
 script = ExtResource("3_p47bc")
 death_particle = NodePath("../GPUParticles2D")
@@ -51,14 +60,5 @@ emitting = false
 amount = 250
 texture = SubResource("PlaceholderTexture2D_lvxji")
 process_material = SubResource("ParticleProcessMaterial_lvxji")
-
-[node name="PlayerDefaultGun" parent="." instance=ExtResource("7_hdgt7")]
-position = Vector2(15, 5)
-cooldown = 0.2
-team = 1
-bullet_scene = ExtResource("8_augf5")
-bullet_speed = 20.0
-bullet_damage = 1.0
-bullet_hit_count = 1
 
 [node name="Weapon" type="Node2D" parent="."]

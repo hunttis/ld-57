@@ -7,4 +7,5 @@ script = ExtResource("1_fg4xb")
 cooldown_timer = NodePath("Cooldown")
 
 [node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
