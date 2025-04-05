@@ -1,3 +1,39 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://ddrvi1apva7um"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ddrvi1apva7um"]
+
+[ext_resource type="Texture2D" uid="uid://clb15orfpft1i" path="res://images/crawler.png" id="1_7svtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnyq7"]
+atlas = ExtResource("1_7svtx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y15ki"]
+atlas = ExtResource("1_7svtx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8we86"]
+atlas = ExtResource("1_7svtx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juomu"]
+atlas = ExtResource("1_7svtx")
+region = Rect2(96, 0, 32, 32)
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnyq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y15ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8we86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juomu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

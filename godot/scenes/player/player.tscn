@@ -1,67 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=10 format=3 uid="uid://dtsswd23so6bp"]
 
-[ext_resource type="Texture2D" uid="uid://bpo015f7sbgq4" path="res://images/bat_front.png" id="1_gmlin"]
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
-[ext_resource type="Texture2D" uid="uid://bpng8hxi1kaob" path="res://images/bat_side.png" id="2_lvxji"]
+[ext_resource type="SpriteFrames" uid="uid://dautkiri0bmih" path="res://images/bat_sprite.tres" id="2_75vfm"]
 [ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dc2y7kqkehsn4" path="res://sounds/death.wav" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="7_hdgt7"]
 [ext_resource type="PackedScene" uid="uid://crpb06f8dttmu" path="res://scenes/components/shooting/player_straight_bullet.tscn" id="8_augf5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
-atlas = ExtResource("1_gmlin")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
-atlas = ExtResource("1_gmlin")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
-atlas = ExtResource("1_gmlin")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
-atlas = ExtResource("2_lvxji")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
-atlas = ExtResource("2_lvxji")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
-atlas = ExtResource("2_lvxji")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fm80t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75vfm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0owmy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qek5x")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5gtgg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h17s1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_je7p5")
-}],
-"loop": true,
-"name": &"move",
-"speed": 10.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(20, 8)
@@ -84,9 +28,8 @@ gravity = Vector3(0, 0, 0)
 script = ExtResource("1_lvxji")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_fm80t")
+sprite_frames = ExtResource("2_75vfm")
 animation = &"idle"
-frame_progress = 0.270027
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]
 script = ExtResource("3_p47bc")
