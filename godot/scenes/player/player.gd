@@ -4,6 +4,10 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var health_component: HealthComponent = $HealthComponent
 
+@export var speed = 300.0
+@export_range(1.0, 5.0) var acceleration: float = 1.0
+@export_range(1.0, 2.0) var deceleration: float = 1.2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
   health_component.on_health_changed.connect(_on_health_changed)
@@ -22,3 +26,14 @@ func _process(_delta):
   if Input.is_action_just_pressed(("debug0")):
     print("player took damage")
     health_component.take_damage(1)
+
+
+func _physics_process(delta: float) -> void:
+  var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+  if(direction != Vector2.ZERO):
+    velocity = velocity.lerp(direction * speed, acceleration * delta)
+  else:
+    velocity = velocity /deceleration
+
+  move_and_slide()
