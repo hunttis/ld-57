@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bquxwpofea2pf"]
+
+[ext_resource type="Script" uid="uid://2rygngv5t7r8" path="res://scenes/weapons/bullet.gd" id="1_jve0i"]
+[ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="2_5y0vp"]
+[ext_resource type="SpriteFrames" uid="uid://8o686hwtk440" path="res://images/fireball_sprite.tres" id="3_uy1ok"]
+[ext_resource type="Script" uid="uid://c1ixa2ewmgywe" path="res://scenes/components/shooting/bullet_hitter.gd" id="4_5y0vp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uy1ok"]
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_jve0i")
+speed = 250.0
+acceleration = 10.0
+damage = 1.0
+team = 1
+
+[node name="StraightMover" type="Node2D" parent="."]
+script = ExtResource("2_5y0vp")
+metadata/_custom_type_script = "uid://c6f0327yq8wqj"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_uy1ok")
+frame_progress = 0.842609
+
+[node name="BulletHitter" type="Area2D" parent="."]
+script = ExtResource("4_5y0vp")
+metadata/_custom_type_script = "uid://c1ixa2ewmgywe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitter"]
+shape = SubResource("CircleShape2D_uy1ok")

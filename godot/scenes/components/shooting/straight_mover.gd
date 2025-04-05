@@ -1,10 +1,8 @@
 extends Node2D
+class_name StraightMover
 
-@export var move_values: BulletMovementValues
-var root: Node2D
-
-func _process(delta):
-	move_values.speed += move_values.acceleration * delta
-	if !move_values.can_go_negative && move_values.speed < 0:
-		move_values.speed = 0
-	move_values.root.position += move_values.direction * move_values.speed * delta
+func move(thing: Bullet, delta: float):
+	thing.speed += thing.acceleration * delta
+	if !thing.can_go_negative && thing.speed < 0:
+		thing.speed = 0
+	thing.root.position += thing.direction * thing.speed * delta

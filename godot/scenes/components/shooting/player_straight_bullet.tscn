@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4kl81cyty4pk"]
+
+[ext_resource type="Script" uid="uid://b7er026mjllw8" path="res://scenes/components/shooting/moving_bullet.gd" id="1_kyohr"]
+[ext_resource type="PackedScene" uid="uid://b2fjh2kmocdfb" path="res://scenes/components/shooting/bullet_hitter.tscn" id="2_5rrc5"]
+[ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="3_26fqe"]
+[ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="4_ayjxb"]
+[ext_resource type="SpriteFrames" uid="uid://8o686hwtk440" path="res://images/fireball_sprite.tres" id="5_gsmb1"]
+
+[node name="PlayerStraightBullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values")]
+script = ExtResource("1_kyohr")
+hitter = NodePath("BulletHitter")
+move_values = NodePath("StraightMover/MovementValues")
+
+[node name="BulletHitter" parent="." instance=ExtResource("2_5rrc5")]
+
+[node name="StraightMover" type="Node2D" parent="."]
+script = ExtResource("3_26fqe")
+
+[node name="MovementValues" type="Node2D" parent="StraightMover"]
+script = ExtResource("4_ayjxb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("5_gsmb1")

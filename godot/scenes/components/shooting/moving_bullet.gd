@@ -23,10 +23,10 @@ func shoot(
 	move_values.direction = direction
 	move_values.can_go_negative = can_go_negative
 	move_values.root = self
-	if animated_sprite != null && sprite_frames != null:
-		animated_sprite.sprite_frames = sprite_frames
-		animated_sprite.play()
-	
+	animated_sprite.sprite_frames = sprite_frames
+	animated_sprite.play("default")
+	animated_sprite.scale.x = sign(direction.x)
+
 func stop():
 	print("bullet stopped")
 	queue_free()

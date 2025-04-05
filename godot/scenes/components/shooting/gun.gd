@@ -18,15 +18,14 @@ var can_shoot_time_msec: int = 0
 
 @export var cooldown_timer: Timer
 
-
 func shoot(direction: Vector2):
 	if cooldown_timer.is_stopped():
 		cooldown_timer.start()
-		var node = bullet_scene.instantiate()
-		get_tree().get_first_node_in_group("GameScene").add_child(node)
-		if node is MovingBullet:
-			node.global_position = global_position
-			node.shoot(
+		var bullet = bullet_scene.instantiate()
+		get_tree().get_first_node_in_group("GameScene").add_child(bullet)
+		if bullet is MovingBullet:
+			bullet.global_position = global_position
+			bullet.shoot(
 				team, direction, bullet_damage,
 				bullet_hit_count, bullet_infinite_hits,
 				bullet_speed, bullet_acceleration, bullet_can_go_negative,

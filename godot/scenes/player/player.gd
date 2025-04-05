@@ -8,6 +8,7 @@ class_name Player
 @export var speed = 300.0
 @export_range(1.0, 5.0) var acceleration: float = 1.0
 @export_range(1.0, 2.0) var deceleration: float = 1.2
+@export var weapon: PackedScene
 
 var last_direction: int = 1
 
@@ -31,7 +32,8 @@ func _process(_delta):
 		health_component.take_damage(1)
 
 	if Input.is_action_pressed(("shoot")):
-		default_gun.shoot(Vector2(last_direction, 0))
+		#default_gun.shoot(Vector2(last_direction, 0))
+		var instance = weapon.instantiate().shoot(Vector2(last_direction, 0))
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,3 @@
-extends Node2D
 class_name BulletMovementValues
 
 var speed: float = 0
