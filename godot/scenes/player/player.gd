@@ -37,10 +37,15 @@ func _process(_delta):
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-	if(direction != Vector2.ZERO):
+	if (direction != Vector2.ZERO):
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
+		sprite.play("move")
+		if direction.x != 0:
+			# look into the direction where player wants to go
+			sprite.scale.x = sign(direction.x)
 	else:
-		velocity = velocity /deceleration
+		velocity = velocity / deceleration
+		sprite.play("idle")
 	if velocity.x != 0:
 		last_direction = sign(velocity.x)
 
