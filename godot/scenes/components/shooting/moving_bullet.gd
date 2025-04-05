@@ -5,8 +5,8 @@ class_name MovingBullet
 @export var move_values: BulletMovementValues
 
 func shoot(
-		team: Global.TEAM, direction: Vector2, damage: float = 0, hit_count: int = 1, 
-		infinite_hits: bool = false, speed: float = 0, 
+		team: Global.TEAM, direction: Vector2, damage: float = 0, hit_count: int = 1,
+		infinite_hits: bool = false, speed: float = 0,
 		acceleration: float = 0, can_go_negative = false
 	):
 	hitter.damage = damage
@@ -23,7 +23,9 @@ func shoot(
 	move_values.root = self
 	
 func stop():
+	print("bullet stopped")
 	queue_free()
 	
 func hit():
+	print("bullet hit something")
 	pass

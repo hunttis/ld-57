@@ -17,8 +17,8 @@ func _process(delta):
 	if !has_duration:
 		pass
 	duration -= delta
-	if duration <=0:
-		stopped.emit() 
+	if duration <= 0:
+		stopped.emit()
 
 func _on_area_entered(area: Area2D):
 	if area is not Hittable:
@@ -32,7 +32,6 @@ func _on_area_entered(area: Area2D):
 	hit_something.emit()
 	if infinite_hits:
 		pass
-	hits.set(area,null)
+	hits.set(area, null)
 	if hits.size() >= hit_count:
 		stopped.emit()
-	

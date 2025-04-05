@@ -29,7 +29,8 @@ script = ExtResource("1_lvxji")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_75vfm")
-animation = &"idle"
+animation = &"move"
+frame_progress = 0.71321
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]
 script = ExtResource("3_p47bc")
@@ -52,9 +53,12 @@ texture = SubResource("PlaceholderTexture2D_lvxji")
 process_material = SubResource("ParticleProcessMaterial_lvxji")
 
 [node name="PlayerDefaultGun" parent="." instance=ExtResource("7_hdgt7")]
+position = Vector2(15, 5)
 cooldown = 0.2
 team = 1
 bullet_scene = ExtResource("8_augf5")
 bullet_speed = 20.0
 bullet_damage = 1.0
 bullet_hit_count = 1
+
+[node name="Weapon" type="Node2D" parent="."]

@@ -1,6 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://2enpxv4ek44"]
 
-[ext_resource type="Script" path="res://scenes/components/shooting/gun.gd" id="1_fg4xb"]
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="1_fg4xb"]
 
-[node name="PlayerDefaultGun" type="Node2D"]
+[node name="PlayerDefaultGun" type="Node2D" node_paths=PackedStringArray("cooldown_timer")]
 script = ExtResource("1_fg4xb")
+cooldown_timer = NodePath("Cooldown")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
