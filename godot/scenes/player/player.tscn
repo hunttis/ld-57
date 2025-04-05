@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=15 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Texture2D" uid="uid://bpo015f7sbgq4" path="res://images/bat_front.png" id="1_gmlin"]
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
@@ -64,6 +64,18 @@ animations = [{
 size = Vector2(20, 8)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lvxji"]
+size = Vector2(2, 2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lvxji"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 93.93
+initial_velocity_max = 139.13
+angular_velocity_min = -393.31
+angular_velocity_max = -101.14
+gravity = Vector3(0, 0, 0)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lvxji")
@@ -88,4 +100,6 @@ shape = SubResource("RectangleShape2D_p47bc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
+amount = 250
 texture = SubResource("PlaceholderTexture2D_lvxji")
+process_material = SubResource("ParticleProcessMaterial_lvxji")

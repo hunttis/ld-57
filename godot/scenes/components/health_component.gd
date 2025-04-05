@@ -11,6 +11,8 @@ var health: int = 0
 
 func _ready() -> void:
   health = max_health
+  print("has death_particle: ", death_particle != null)
+  print("has death_audio: ", death_audio != null)
   emit_signal("on_health_changed", health)
 
 func take_damage(damage: int) -> void:
