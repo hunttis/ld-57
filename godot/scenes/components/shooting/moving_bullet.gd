@@ -14,12 +14,13 @@ func shoot(
 	hitter.infinite_hits = infinite_hits
 	hitter.stopped.connect(stop)
 	hitter.hit_something.connect(hit)
-	hitter.TEAM = team
+	hitter.team = team
 	
 	move_values.acceleration = acceleration
 	move_values.speed = speed
 	move_values.direction = direction
 	move_values.can_go_negative = can_go_negative
+	move_values.root = self
 	
 func stop():
 	queue_free()

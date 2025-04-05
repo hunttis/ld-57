@@ -5,4 +5,4 @@ var speed: float = 0
 var acceleration: float = 0
 var direction: Vector2
 var can_go_negative: bool = false
-var root: Area2D
+var root: Node2D
