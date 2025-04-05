@@ -30,7 +30,7 @@ func _process(_delta):
 		print("player took damage")
 		health_component.take_damage(1)
 
-	if Input.is_action_pressed(("shoot_default")):
+	if Input.is_action_pressed(("shoot")):
 		default_gun.shoot(Vector2(last_direction, 0))
 
 
