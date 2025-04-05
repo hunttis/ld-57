@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=14 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Texture2D" uid="uid://bpo015f7sbgq4" path="res://images/bat_front.png" id="1_gmlin"]
+[ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://bpng8hxi1kaob" path="res://images/bat_side.png" id="2_lvxji"]
 [ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 
@@ -42,7 +43,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,22 +57,35 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
+size = Vector2(20, 8)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lvxji"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_lvxji")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fm80t")
 animation = &"idle"
+frame_progress = 0.270027
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]
 script = ExtResource("3_p47bc")
-death_particle = NodePath("../DeathParticles")
+death_particle = NodePath("../GPUParticles2D")
 death_audio = NodePath("../AudioStreamPlayer2D")
 max_health = 5
 metadata/_custom_type_script = "uid://7pnav6fettye"
 
-[node name="DeathParticles" type="GPUParticles2D" parent="."]
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_p47bc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+texture = SubResource("PlaceholderTexture2D_lvxji")
