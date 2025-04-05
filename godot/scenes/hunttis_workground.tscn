@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1ba17ub0d6l"]
+[gd_scene load_steps=3 format=3 uid="uid://n1ba17ub0d6l"]
 
 [ext_resource type="PackedScene" uid="uid://j4lf47knpm4f" path="res://scenes/boss/violence_boss.tscn" id="1_aguyi"]
+[ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="2_08r6s"]
 
 [node name="HunttisWorkground" type="Node2D"]
 
 [node name="ViolenceBoss" parent="." instance=ExtResource("1_aguyi")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1000
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_08r6s")
