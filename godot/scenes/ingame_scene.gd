@@ -8,8 +8,9 @@ extends Node2D
 	preload("res://scenes/levels/level_1.tscn")
 ]
 
+@onready var max_levels = len(levels) -1
+
 var current_level = 0
-var max_levels = len(levels) -1
 
 func _ready() -> void:
 	fade_overlay.visible = true
@@ -28,10 +29,6 @@ func _input(event) -> void:
 		get_tree().paused = true
 		pause_overlay.grab_button_focus()
 		pause_overlay.visible = true
-	
-	if event.is_action_pressed("debug1"):
-		#get_tree().reload_current_scene()
-		Global.level_cleared.emit()
 
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
@@ -41,8 +38,7 @@ func _on_level_cleared():
 	if current_level > max_levels:
 		# todo: show victory screen
 		current_level = 0
-	# instanciate new level
+
 	var next_level = levels[current_level].instantiate()
 	level_container.get_child(0).queue_free()	
-	# add new level
 	level_container.add_child(next_level)
