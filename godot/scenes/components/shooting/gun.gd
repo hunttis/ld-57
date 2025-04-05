@@ -16,9 +16,15 @@ var can_shoot_time_msec: int = 0
 @export var bullet_infinite_hits: bool
 
 
-func shoot():
+func shoot(direction: Vector2):
 	if can_shoot_time_msec < Time.get_ticks_msec():
 		pass
 	var scene = bullet_scene.instantiate()
 	get_tree().get_first_node_in_group("GameScene").add_child(scene)
 	can_shoot_time_msec = Time.get_ticks_msec() + cooldown * 1000
+	if scene is MovingBullet:
+		scene.shoot(
+			team, direction, bullet_damage, 
+			bullet_hit_count, bullet_infinite_hits, 
+			bullet_speed, bullet_acceleration, bullet_can_go_negative
+		)
