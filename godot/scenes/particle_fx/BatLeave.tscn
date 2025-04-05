@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://brj3glnht1wds"]
+
+[ext_resource type="Texture2D" uid="uid://csi7slrvsumfk" path="res://images/bat_single.png" id="1_kar06"]
+[ext_resource type="Script" uid="uid://o1ivr4s70fss" path="res://scenes/particle_fx/remove_on_end.gd" id="2_tna4q"]
+
+[sub_resource type="Curve" id="Curve_kar06"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tna4q"]
+curve = SubResource("Curve_kar06")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_llaus"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -360, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_tna4q")
+
+[sub_resource type="Curve" id="Curve_tna4q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.576642, 0.772358), -0.962795, -0.962795, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_llaus"]
+curve = SubResource("Curve_tna4q")
+
+[sub_resource type="Curve" id="Curve_llaus"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.711679, 0.825203), -0.581124, -0.581124, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_70l56"]
+curve = SubResource("Curve_llaus")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4co0"]
+lifetime_randomness = 0.8
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_70l56")
+alpha_curve = SubResource("CurveTexture_llaus")
+
+[node name="BatLeave" type="GPUParticles2D"]
+position = Vector2(349, 160)
+emitting = false
+amount = 100
+texture = ExtResource("1_kar06")
+one_shot = true
+explosiveness = 0.95
+trail_lifetime = 1.0
+trail_sections = 13
+trail_section_subdivisions = 13
+process_material = SubResource("ParticleProcessMaterial_llaus")
+script = ExtResource("2_tna4q")
+
+[node name="BatLeaveDown" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = ExtResource("1_kar06")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_y4co0")
