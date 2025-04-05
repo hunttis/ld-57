@@ -17,6 +17,9 @@ func _input(event) -> void:
 		get_tree().paused = true
 		pause_overlay.grab_button_focus()
 		pause_overlay.visible = true
-		
+	
+	if event.is_action_pressed("debug1"):
+		get_tree().reload_current_scene()
+
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
