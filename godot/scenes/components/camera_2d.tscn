@@ -1,13 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://davpf7phes46m"]
 
-[ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="1_y3knd"]
+[ext_resource type="Script" uid="uid://bsqpyfdsdmd37" path="res://scenes/components/camera.gd" id="1_vnbmv"]
 
 [node name="Camera2D" type="Camera2D"]
 limit_left = 0
 limit_top = 0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -1000
-offset_right = 640.0
-offset_bottom = 360.0
-texture = ExtResource("1_y3knd")
+script = ExtResource("1_vnbmv")
