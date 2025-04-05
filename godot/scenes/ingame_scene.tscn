@@ -23,9 +23,9 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("4_7v5ay")]
 position = Vector2(287, 185)
-speed = null
-acceleration = null
-deceleration = null
+speed = 300.0
+acceleration = 1.0
+deceleration = 1.2
 
 [node name="TerrainScene" parent="." instance=ExtResource("5_2577t")]
 

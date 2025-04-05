@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=18 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Texture2D" uid="uid://bpo015f7sbgq4" path="res://images/bat_front.png" id="1_gmlin"]
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://bpng8hxi1kaob" path="res://images/bat_side.png" id="2_lvxji"]
 [ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dc2y7kqkehsn4" path="res://sounds/death.wav" id="5_p47bc"]
-[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="6_fwjsc"]
 [ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="7_hdgt7"]
 [ext_resource type="PackedScene" uid="uid://crpb06f8dttmu" path="res://scenes/components/shooting/player_straight_bullet.tscn" id="8_augf5"]
 
@@ -102,13 +101,6 @@ bus = &"Sound"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_p47bc")
-
-[node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_p47bc")
-debug_color = Color(0.977996, 0, 0.399711, 0.42)
-script = ExtResource("6_fwjsc")
-team = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
