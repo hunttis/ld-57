@@ -5,7 +5,9 @@ extends Node2D
 @onready var level_container = %LevelContainer
 
 @onready var levels: Array[PackedScene] = [
-	preload("res://scenes/levels/level_1.tscn")
+	preload("res://scenes/levels/level_1.tscn"),
+	preload("res://scenes/levels/level_2.tscn"),
+	preload("res://scenes/levels/level_3.tscn"),
 ]
 
 @onready var max_levels = len(levels) -1
