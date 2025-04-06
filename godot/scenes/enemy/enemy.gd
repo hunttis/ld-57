@@ -8,10 +8,13 @@ extends RigidBody2D
 var progress = 0
 var origin = position
 
+@export var hitpoints = 1
+@export var slowness = 1
+
 func _ready():
 	sprite.play('default')
 
 func _process(delta: float) -> void:
-	progress += delta
+	progress += delta / slowness
 	path_follower.progress_ratio = pingpong(progress, 1)
 	position = origin + path_follower.position

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp4tw1eahrdao"]
+[gd_scene load_steps=9 format=3 uid="uid://cp4tw1eahrdao"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_6761a"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="1_x42e6"]
 [ext_resource type="PackedScene" uid="uid://kouan0th5t80" path="res://scenes/terrain/terrain_scene.tscn" id="2_6761a"]
 [ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="3_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="4_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="6_s8va5"]
+[ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="7_dga24"]
+[ext_resource type="PackedScene" uid="uid://cys4why0dlufr" path="res://scenes/enemy/EnemyHarpy.tscn" id="8_qxy0u"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6761a")
@@ -33,3 +36,12 @@ limit_bottom = 360
 limit_smoothed = true
 position_smoothing_enabled = true
 script = null
+
+[node name="EnemyBanshee" parent="." instance=ExtResource("6_s8va5")]
+position = Vector2(471, 161)
+
+[node name="EnemyFlies" parent="." instance=ExtResource("7_dga24")]
+position = Vector2(183, 141)
+
+[node name="EnemyHarpy" parent="." instance=ExtResource("8_qxy0u")]
+position = Vector2(558, 104)

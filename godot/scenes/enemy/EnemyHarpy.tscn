@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cys4why0dlufr"]
+
+[ext_resource type="PackedScene" uid="uid://c0wm460jbc5f" path="res://scenes/enemy/types/FloatingEnemy.tscn" id="1_jsmja"]
+[ext_resource type="Texture2D" uid="uid://c7o2xk7lngxs4" path="res://images/harpy.png" id="2_t5o65"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv6uu"]
+atlas = ExtResource("2_t5o65")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvxuo"]
+atlas = ExtResource("2_t5o65")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt3so"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv6uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvxuo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="EnemyHarpy" type="Node2D"]
+
+[node name="FloatingEnemy" parent="." instance=ExtResource("1_jsmja")]
+slowness = 3
+
+[node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
+sprite_frames = SubResource("SpriteFrames_mt3so")
+frame_progress = 0.960181

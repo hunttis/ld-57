@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://n63imw4wyujs"]
+
+[ext_resource type="PackedScene" uid="uid://c0wm460jbc5f" path="res://scenes/enemy/types/FloatingEnemy.tscn" id="1_8mtgo"]
+[ext_resource type="Texture2D" uid="uid://dqqhmc3rqgckj" path="res://images/flies.png" id="2_fiw0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh3ki"]
+atlas = ExtResource("2_fiw0h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n237"]
+atlas = ExtResource("2_fiw0h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fp2g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh3ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n237")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="EnemyFlies" type="Node2D"]
+
+[node name="FloatingEnemy" parent="." instance=ExtResource("1_8mtgo")]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
+sprite_frames = SubResource("SpriteFrames_fp2g5")
