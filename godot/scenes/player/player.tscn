@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=11 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="SpriteFrames" uid="uid://dqc571m4e2y8g" path="res://images/bat_sprite.tres" id="2_75vfm"]
@@ -22,13 +22,14 @@ angular_velocity_min = -393.31
 angular_velocity_max = -101.14
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
-size = Vector2(14, 4)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0owmy"]
 size = Vector2(14, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
+size = Vector2(14, 4)
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_lvxji")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
@@ -49,6 +50,7 @@ bullet_hit_count = 1
 script = ExtResource("3_p47bc")
 death_particle = NodePath("../GPUParticles2D")
 death_audio = NodePath("../AudioStreamPlayer2D")
+max_health = 10
 metadata/_custom_type_script = "uid://7pnav6fettye"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -61,17 +63,14 @@ amount = 250
 texture = SubResource("PlaceholderTexture2D_lvxji")
 process_material = SubResource("ParticleProcessMaterial_lvxji")
 
-[node name="Hittable" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("7_0owmy")
-team = 1
-metadata/_custom_type_script = "uid://b8k6ibtcwlme"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_p47bc")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_0owmy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_75vfm")

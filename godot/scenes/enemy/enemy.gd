@@ -1,4 +1,5 @@
-extends RigidBody2D
+extends Area2D
+class_name Enemy
 
 @onready var shape = $Shape
 @onready var sprite = $Sprite
@@ -27,7 +28,11 @@ func _process(delta: float) -> void:
 	position = origin + path_follower.position
 
 
-func _take_damage(damage: int):
-	hitpoints -= damage
+func _take_damage(incoming_damage: int):
+	hitpoints -= incoming_damage
 	if hitpoints <= 0:
+		Global.create_enemy_death_fx.emit(global_position)
 		queue_free()
+		return
+
+	Global.create_enemy_hit_fx.emit(global_position)
