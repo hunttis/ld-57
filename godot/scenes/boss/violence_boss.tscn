@@ -168,7 +168,7 @@ rotation = -1.94063
 rotates = false
 
 [node name="Striker" type="CharacterBody2D" parent="BossBody"]
-position = Vector2(-92, 21)
+position = Vector2(-56, -3)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("5_rvv8k")
@@ -202,7 +202,7 @@ loop = false
 
 [node name="Striker2" type="CharacterBody2D" parent="BossBody"]
 z_index = -10
-position = Vector2(-66, -9)
+position = Vector2(-32, -35)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("5_rvv8k")
