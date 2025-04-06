@@ -2,6 +2,18 @@ extends Node
 
 enum TEAM {None, Player, Enemy, Neutral}
 
+enum LAYERS {
+	TREACHERY = 1,
+	FRAUD = 2,
+	VIOLENCE = 3,
+	HERESY = 4,
+	ANGER = 5,
+	GREED = 6,
+	GLUTTONY = 7,
+	LUST = 8,
+	LIMBO = 9
+}
+
 signal level_cleared(coords: Vector2)
 signal game_over
 signal game_restart
