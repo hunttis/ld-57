@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://davpf7phes46m"]
-
-[ext_resource type="Script" uid="uid://bsqpyfdsdmd37" path="res://scenes/components/camera.gd" id="1_vnbmv"]
+[gd_scene format=3 uid="uid://davpf7phes46m"]
 
 [node name="Camera2D" type="Camera2D"]
+process_callback = 0
 limit_left = 0
 limit_top = 0
-script = ExtResource("1_vnbmv")
+position_smoothing_enabled = true

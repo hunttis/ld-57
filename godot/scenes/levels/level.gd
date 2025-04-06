@@ -7,6 +7,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	camera.limit_right = terrain.get_used_rect().size.x * 32
+	camera.reset_smoothing()
 
 func _process(_delta: float) -> void:
 	var enemies = get_tree().get_nodes_in_group("Enemy")

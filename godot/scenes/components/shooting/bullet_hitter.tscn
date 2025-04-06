@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c1ixa2ewmgywe" path="res://scenes/components/shooting/bullet_hitter.gd" id="1_fhkgt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jfo3a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jukhc"]
+size = Vector2(16, 8)
 
 [node name="BulletHitter" type="Area2D"]
 collision_layer = 4
@@ -10,6 +11,6 @@ collision_mask = 2
 script = ExtResource("1_fhkgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_jfo3a")
+shape = SubResource("RectangleShape2D_jukhc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
