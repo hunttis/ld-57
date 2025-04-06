@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cql8puvmbaw5u" path="res://images/violenceboss.png" id="2_23uh7"]
 [ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="2_31y1n"]
 [ext_resource type="Texture2D" uid="uid://dv68a1l1oiaks" path="res://images/violenceboss_weakspot.png" id="3_1vlja"]
-[ext_resource type="Script" path="res://scenes/boss/boss_hittable.gd" id="4_31y1n"]
+[ext_resource type="Script" uid="uid://dcg7f0rp01s8r" path="res://scenes/boss/boss_hittable.gd" id="4_31y1n"]
 [ext_resource type="Script" uid="uid://cn8ddvx10harv" path="res://scenes/boss/striker.gd" id="5_rvv8k"]
 [ext_resource type="Texture2D" uid="uid://y6r3iwj5c66a" path="res://images/tentacle_blocker.png" id="6_31y1n"]
 [ext_resource type="Texture2D" uid="uid://du018hwsain5i" path="res://images/fade_striker.png" id="8_lvygf"]

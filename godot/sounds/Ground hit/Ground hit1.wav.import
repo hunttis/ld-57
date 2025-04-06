@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cb2le6gefoixh"
+path="res://.godot/imported/Ground hit1.wav-ef73507c00ebf60e1a2ea80d52ad497a.sample"
+
+[deps]
+
+source_file="res://sounds/Ground hit/Ground hit1.wav"
+dest_files=["res://.godot/imported/Ground hit1.wav-ef73507c00ebf60e1a2ea80d52ad497a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

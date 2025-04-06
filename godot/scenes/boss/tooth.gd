@@ -20,7 +20,6 @@ var min_wait = 0.1
 func _ready():
 	global_origin = global_position
 	order = int(name.substr(5, 1))
-	player = get_tree().get_first_node_in_group("Player")
 	cooldown = calculate_cooldown()
 	super ()
 	
@@ -39,6 +38,9 @@ func calculate_cooldown():
 
 
 func _process(delta):
+	if !player:
+		player = get_tree().get_first_node_in_group("Player")
+
 	if global_position.distance_to(global_origin) == 0:
 		cooldown -= delta
 	
@@ -48,6 +50,9 @@ func _process(delta):
 		attack = true
 	
 	if attack && !attack_happening:
+		if !player:
+			return
+
 		attack_happening = true
 		var tween: Tween = get_tree().create_tween()
 		tween.set_trans(Tween.TRANS_EXPO)

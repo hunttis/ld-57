@@ -18,7 +18,6 @@ func _ready():
 		sprite.play('default')
 
 func _take_damage(incoming_damage: int):
-	print("Took damage! ", str(incoming_damage), " / ", str(hitpoints))
 	hitpoints -= incoming_damage
 	if hitpoints <= 0:
 		Global.create_enemy_death_fx.emit(global_position)

@@ -13,7 +13,7 @@ script = ExtResource("1_l37oo")
 
 [node name="Player" parent="." instance=ExtResource("2_qpwj6")]
 modulate = Color(0.776033, 0, 0.24291, 1)
-position = Vector2(858, 171)
+position = Vector2(404, 155)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -34,7 +34,7 @@ texture = ExtResource("4_qpwj6")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("5_3p04p")]
-position = Vector2(858, 171)
+position = Vector2(404, 155)
 limit_bottom = 360
 limit_smoothed = true
 

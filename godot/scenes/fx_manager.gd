@@ -16,6 +16,7 @@ var player_teleport_scene = preload("res://scenes/particle_fx/Teleport.tscn")
 @onready var levelclear_sound = $LevelClearSound
 @onready var movement_sound = $MovementSound
 @onready var shooting_sound = $ShootingSound
+@onready var groundhit_sound = $GroundHitSound
 
 var game_scene: Node2D
 
@@ -48,6 +49,8 @@ func _on_enemy_death(coords: Vector2):
 func _on_nondamaging_hit(coords: Vector2):
 	var nondamaging_hit_effect = nondamaging_hit_scene.instantiate()
 	_add_to_scene(nondamaging_hit_effect, coords)
+	if !groundhit_sound.playing:
+		groundhit_sound.play()
 	
 func _on_player_hit(coords: Vector2):
 	var player_hit_effect = player_hit_scene.instantiate()
