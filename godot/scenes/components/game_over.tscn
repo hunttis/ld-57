@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://jy5n107wbw8u"]
+[gd_scene format=3 uid="uid://chclxby2dol7b"]
 
-[node name="VictoryScreen" type="CenterContainer"]
+[node name="GameOver" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,13 +15,13 @@ color = Color(0, 0, 0, 1)
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"HeaderLarge"
-text = "Congratulations!"
-horizontal_alignment = 1
-
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "You have freed yourself from the torment of hell!"
+theme_type_variation = &"HeaderLarge"
+text = "Game over"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press Enter to restart"
 horizontal_alignment = 1

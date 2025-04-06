@@ -24,6 +24,7 @@ func _on_health_changed(health: int) -> void:
 func _on_death():
 	print("player dies here")
 	sprite.hide()
+	Global.game_over.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
