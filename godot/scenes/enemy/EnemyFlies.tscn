@@ -29,7 +29,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bh3ki"]
 radius = 17.0
 
-[node name="EnemyFlies" type="Node2D" groups=["Enemy"]]
+[node name="EnemyFlies" type="Node2D"]
 
 [node name="FloatingEnemy" parent="." instance=ExtResource("1_8mtgo")]
 

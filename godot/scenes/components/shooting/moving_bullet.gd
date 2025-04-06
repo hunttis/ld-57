@@ -28,8 +28,9 @@ func shoot(
 	
 	
 func stop():
-	print("bullet stopped")
 	queue_free()
 	
-func hit():
-	print("bullet hit something")
+func hit(hit_enemy: bool):
+	if !hit_enemy:
+		Global.create_nondamaging_hit_fx.emit(global_position)
+		return

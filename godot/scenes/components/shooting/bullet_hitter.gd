@@ -20,23 +20,29 @@ func _ready():
 func _process(delta):
 	if !has_duration:
 		return
+
 	duration -= delta
 	if duration <= 0:
 		stopped.emit()
 
 func _on_collision(body: Node2D):
 	if body is not Hittable:
+		hit_something.emit(false)
 		stopped.emit()
-		Global.create_nondamaging_hit_fx.emit()
 		return
+
 	if hits.has(body):
 		return
+
 	if body.team == team:
 		return
+
 	body.hit(damage)
-	hit_something.emit()
+	hit_something.emit(true)
+
 	if infinite_hits:
 		return
+
 	hits.set(body, null)
 	if hits.size() >= hit_count:
 		stopped.emit()
