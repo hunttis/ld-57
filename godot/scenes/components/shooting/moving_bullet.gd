@@ -28,10 +28,8 @@ func shoot(
 	move_values.can_go_negative = can_go_negative
 	move_values.root = self
 	
-	if animated_sprite != null:
-		var angle = atan2(direction.y, direction.x)
-		animated_sprite.rotation = angle
-
+	var angle = atan2(direction.y, direction.x)
+	animated_sprite.rotation = angle
 	animated_sprite.play("default")
 	
 func stop(hit_anything: bool):
