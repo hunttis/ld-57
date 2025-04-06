@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctjkwcao83u3g"]
+
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="1_co6ne"]
+[ext_resource type="PackedScene" uid="uid://brb3gk32hwsqa" path="res://scenes/enemy/types/ShootingEnemy.tscn" id="1_f2mmu"]
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="2_1raf2"]
+[ext_resource type="Texture2D" uid="uid://lew0f5p4y7xd" path="res://images/red_eye.png" id="3_1raf2"]
+[ext_resource type="PackedScene" uid="uid://dbegx3jiouvlh" path="res://scenes/components/shooting/straight_bullet.tscn" id="3_co6ne"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_kmb8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co6ne"]
+atlas = ExtResource("3_1raf2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oto4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co6ne")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmb8f"]
+radius = 17.0
+
+[node name="EnemyEye" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_co6ne")
+
+[node name="ShootingEnemy" parent="." instance=ExtResource("1_f2mmu")]
+
+[node name="Gun" type="Node2D" parent="ShootingEnemy" node_paths=PackedStringArray("cooldown_timer")]
+script = ExtResource("2_1raf2")
+cooldown = 0.5
+team = 2
+bullet_scene = ExtResource("3_co6ne")
+bullet_speed = 200.0
+bullet_damage = 2.0
+cooldown_timer = NodePath("../Timer")
+metadata/_custom_type_script = "uid://bf2wuul71apu0"
+
+[node name="Timer" type="Timer" parent="ShootingEnemy"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oto4c")
+
+[node name="Hittable" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_kmb8f")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
+shape = SubResource("CircleShape2D_kmb8f")
