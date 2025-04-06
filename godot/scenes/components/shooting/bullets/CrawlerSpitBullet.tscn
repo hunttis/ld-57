@@ -25,6 +25,8 @@ metadata/_custom_type_script = "uid://c1ixa2ewmgywe"
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_fu3in")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="BulletHitter"]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
 sprite_frames = ExtResource("3_vh41d")
