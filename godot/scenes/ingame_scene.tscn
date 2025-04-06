@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=8 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://775s2w2dy5xy" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jy5n107wbw8u" path="res://scenes/components/victory_screen.tscn" id="4_7v5ay"]
 [ext_resource type="PackedScene" path="res://scenes/components/game_over.tscn" id="5_2577t"]
 [ext_resource type="Script" path="res://scenes/components/game_over.gd" id="6_gadrd"]
+[ext_resource type="Script" uid="uid://c6si5x6kuqyyu" path="res://scenes/fx_manager.gd" id="7_5jhce"]
 
 [node name="IngameScene" type="Node2D" groups=["GameScene"]]
 script = ExtResource("1_objyc")
@@ -32,3 +33,6 @@ script = ExtResource("6_gadrd")
 
 [node name="LevelContainer" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="FXManager" type="Node" parent="."]
+script = ExtResource("7_5jhce")
