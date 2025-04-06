@@ -111,9 +111,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_rvv8k"]
 _data = {
-"points": PackedVector2Array(1.78909, 11.2813, -1.78909, -11.2813, -72.2858, 23, -44.1882, -0.418046, 44.1882, 0.418046, -16.4286, 7.04837, 10.554, -16.5369, -10.554, 16.5369, 36.1428, 36.2621, 48.7321, -6.26008, -48.7321, 6.26008, -29.5714, 68.2581, 33.125, 17.8238, -33.125, -17.8238, -167.571, 50.1734, 0, 0, 0, 0, -249.556, -14.7554, 0, 0, 0, 0, -262.857, -30.5121)
+"points": PackedVector2Array(1.78909, 11.2813, -1.78909, -11.2813, -72.2858, 23, -44.1882, -0.418046, 44.1882, 0.418046, -16.4286, 7.04837, 10.554, -16.5369, -10.554, 16.5369, 36.1428, 36.2621, 48.7321, -6.26008, -48.7321, 6.26008, -29.5714, 68.2581, 0, 0, 0, 0, -220.143, 76.9973, 33.125, 17.8238, -33.125, -17.8238, -272.714, 53.1813, 0, 0, 0, 0, -331.857, -12.6628, 0, 0, 0, 0, -351.571, -35.0779)
 }
-point_count = 7
+point_count = 8
 
 [node name="ViolenceBoss" type="Node2D"]
 position = Vector2(500, 135)
@@ -158,6 +158,7 @@ sprite_frames = SubResource("SpriteFrames_lvygf")
 
 [node name="Blocker" type="CharacterBody2D" parent="BossBody"]
 position = Vector2(-49, -37)
+scale = Vector2(1, 0.992997)
 collision_layer = 2
 motion_mode = 1
 
@@ -175,10 +176,12 @@ curve = SubResource("Curve2D_23uh7")
 [node name="BlockerPathFollower" type="PathFollow2D" parent="BossBody/Blocker/BlockerPath"]
 position = Vector2(-74, -49)
 rotation = -1.94063
+scale = Vector2(1, 0.987254)
 rotates = false
 
 [node name="Striker" type="CharacterBody2D" parent="BossBody" groups=["Enemy"]]
 position = Vector2(-56, -3)
+scale = Vector2(1, 0.992997)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("5_rvv8k")
