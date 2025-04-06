@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://chclxby2dol7b"]
+[gd_scene load_steps=0 format=3 uid="uid://chclxby2dol7b"]
 
 [node name="GameOver" type="CenterContainer"]
 anchors_preset = 15
