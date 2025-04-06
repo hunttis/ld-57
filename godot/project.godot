@@ -32,6 +32,7 @@ window/stretch/aspect="keep_height"
 [global_group]
 
 Enemy="Enemies go in this one"
+Player=""
 
 [gui]
 

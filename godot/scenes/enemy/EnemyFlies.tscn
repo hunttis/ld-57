@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://n63imw4wyujs"]
+[gd_scene load_steps=9 format=3 uid="uid://n63imw4wyujs"]
 
 [ext_resource type="PackedScene" uid="uid://c0wm460jbc5f" path="res://scenes/enemy/types/FloatingEnemy.tscn" id="1_8mtgo"]
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="1_bh3ki"]
 [ext_resource type="Texture2D" uid="uid://dqqhmc3rqgckj" path="res://images/flies.png" id="2_fiw0h"]
 [ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_fiw0h"]
 
@@ -29,19 +30,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bh3ki"]
 radius = 17.0
 
-[node name="EnemyFlies" type="Node2D"]
+[node name="EnemyFlies" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_bh3ki")
 
-[node name="FloatingEnemy" parent="." instance=ExtResource("1_8mtgo")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fp2g5")
 
-[node name="Hittable" type="Area2D" parent="FloatingEnemy"]
+[node name="Hittable" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_fiw0h")
 team = 2
 metadata/_custom_type_script = "uid://b8k6ibtcwlme"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingEnemy/Hittable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
 shape = SubResource("CircleShape2D_bh3ki")
+
+[node name="FloatingEnemy" parent="." instance=ExtResource("1_8mtgo")]
+slowness = 2

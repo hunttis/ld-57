@@ -3,7 +3,7 @@ class_name Gun
 
 var can_shoot_time_msec: int = 0
 
-@export var cooldown: float
+@export var cooldown: float = 1
 @export var team: Global.TEAM
 @export var bullet_scene: PackedScene
 
