@@ -11,7 +11,7 @@ class_name Player
 @export_range(1.0, 5.0) var acceleration: float = 1.0
 @export_range(1.0, 2.0) var deceleration: float = 1.2
 
-var last_direction = 1
+var last_direction = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +43,8 @@ func _process(_delta):
 		health_component.take_damage(1)
 
 	if Input.is_action_pressed(("shoot")):
+		if last_direction == 0:
+			last_direction = 1
 		default_gun.shoot(Vector2(last_direction, 0))
 		sprite.play("move")
 

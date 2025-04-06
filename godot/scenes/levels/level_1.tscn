@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_6761a"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="1_x42e6"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/level_1_terrain.tscn" id="3_dga24"]
+[ext_resource type="PackedScene" uid="uid://xk1wsf8r6hfk" path="res://scenes/terrain/level_1_terrain.tscn" id="3_dga24"]
+[ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="3_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="4_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="7_dga24"]
-[ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="7_oc4kc"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6761a")
@@ -17,9 +17,10 @@ position = Vector2(287, 185)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+script = ExtResource("3_oc4kc")
 
 [node name="TerrainScene" parent="." instance=ExtResource("3_dga24")]
-position = Vector2(55.0635, 2.32257)
+z_index = -5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -35,47 +36,42 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(287, 185)
 limit_bottom = 360
 limit_smoothed = true
-position_smoothing_enabled = true
-script = null
 
 [node name="EnemyFlies" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(183, 141)
+position = Vector2(127.937, 138.677)
 
 [node name="EnemyFlies2" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(596, 147)
+position = Vector2(540.937, 144.677)
 
 [node name="EnemyFlies3" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(881, 111)
+position = Vector2(825.937, 108.677)
 
 [node name="EnemyFlies4" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(1310, 224)
+position = Vector2(1254.94, 221.677)
 
 [node name="EnemyFlies5" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(1357, 247)
+position = Vector2(1301.94, 244.677)
 
 [node name="EnemyFlies6" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(1400, 221)
+position = Vector2(1344.94, 218.677)
 
 [node name="EnemyFlies7" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(1446, 239)
+position = Vector2(1390.94, 236.677)
 
 [node name="EnemyFlies8" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(1521, 69)
+position = Vector2(1465.94, 66.6774)
 
 [node name="EnemyFlies9" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(2452, 266)
+position = Vector2(2396.94, 263.677)
 
 [node name="EnemyFlies10" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(2946, 234)
+position = Vector2(2890.94, 231.677)
 
 [node name="EnemyFlies11" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(2912, 164)
+position = Vector2(2856.94, 161.677)
 
 [node name="EnemyFlies12" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(2865, 107)
+position = Vector2(2809.94, 104.677)
 
 [node name="EnemyFlies13" parent="." instance=ExtResource("7_dga24")]
-position = Vector2(2792, 168)
-
-[node name="EnemyEye" parent="." instance=ExtResource("7_oc4kc")]
-position = Vector2(558, 42)
+position = Vector2(2736.94, 165.677)
