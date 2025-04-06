@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7cmd2w5oxd0m"]
+
+[ext_resource type="Script" uid="uid://817aaee6eyhg" path="res://scenes/boss/limbo_boss.gd" id="1_vhv2y"]
+[ext_resource type="Texture2D" uid="uid://bss7wtam4oqty" path="res://images/limboboss.png" id="2_13f4f"]
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="2_320e4"]
+[ext_resource type="Script" path="res://scenes/boss/boss_hittable.gd" id="4_34phd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhv2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_13f4f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbbqg"]
+size = Vector2(20, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo14n"]
+size = Vector2(20, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpg8l"]
+size = Vector2(80.6171, 47.1856)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_320e4"]
+size = Vector2(40, 20)
+
+[sub_resource type="Curve2D" id="Curve2D_ujgkq"]
+_data = {
+"points": PackedVector2Array(0, 0, 30, 0, 14, -40, 30, 0, -30, 0, 14, 0, -30, 0, 30, 0, 14, 40, 30, 0, -30, 0, 14, 0, -30, 0, 0, 0, 14, -40)
+}
+point_count = 5
+
+[node name="LimboBoss" type="Node2D"]
+position = Vector2(300, 200)
+script = ExtResource("1_vhv2y")
+
+[node name="BossBody" type="CharacterBody2D" parent="." groups=["Enemy"]]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("2_320e4")
+hitpoints = 100
+damage = 3
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody"]
+sprite_frames = SubResource("SpriteFrames_vhv2y")
+
+[node name="BodyCollision1" type="CollisionShape2D" parent="BossBody"]
+position = Vector2(28, -23)
+shape = SubResource("RectangleShape2D_vbbqg")
+
+[node name="BodyCollision2" type="CollisionShape2D" parent="BossBody"]
+position = Vector2(-32, -20.5)
+shape = SubResource("RectangleShape2D_bo14n")
+
+[node name="BodyCollision3" type="CollisionShape2D" parent="BossBody"]
+position = Vector2(3.7561, 33.7939)
+scale = Vector2(0.948779, 0.941224)
+shape = SubResource("RectangleShape2D_lpg8l")
+
+[node name="Hittable" type="Area2D" parent="BossBody"]
+position = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("4_34phd")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="WeakPointCollision" type="CollisionShape2D" parent="BossBody/Hittable"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_320e4")
+
+[node name="BodyPath" type="Path2D" parent="BossBody"]
+position = Vector2(-15, -3)
+curve = SubResource("Curve2D_ujgkq")
+
+[node name="BodyPathFollower" type="PathFollow2D" parent="BossBody/BodyPath"]
+position = Vector2(14, -40)
+rotation = 2.1588
+rotates = false
