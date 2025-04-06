@@ -6,6 +6,7 @@ var nondamaging_hit_scene = preload("res://scenes/particle_fx/NondamagingHit.tsc
 var enemy_hit_scene = preload("res://scenes/particle_fx/EnemyHit.tscn")
 var player_hit_scene = preload("res://scenes/particle_fx/PlayerHit.tscn")
 var enemy_death_scene = preload("res://scenes/particle_fx/EnemyDeath.tscn")
+var player_teleport_scene = preload("res://scenes/particle_fx/Teleport.tscn")
 
 @onready var bathit_sound = $BatHitSound
 @onready var bossgrowl_sound = $BossGrowlSound
@@ -31,6 +32,7 @@ func _ready() -> void:
 	Global.create_shooting_fx.connect(_on_shooting)
 	Global.create_boss_growl_fx.connect(_on_boss_growl)
 	Global.create_movement_fx.connect(_on_movement)
+	Global.create_teleport_fx.connect(_on_teleport)
 	
 	
 func _on_bullet_hit(coords: Vector2):
@@ -73,7 +75,9 @@ func _on_boss_growl(coords: Vector2):
 func _on_movement(coords: Vector2):
 	movement_sound.play()
 	
-
+func _on_teleport(coords: Vector2):
+	var player_teleport_effect = player_teleport_scene.instantiate()
+	_add_to_scene(player_teleport_effect, coords)
 
 func _add_to_scene(fx: GPUParticles2D, coords):
 	game_scene.add_child(fx)

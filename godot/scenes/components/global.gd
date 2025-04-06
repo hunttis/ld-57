@@ -14,6 +14,16 @@ enum LAYERS {
 	LIMBO = 9
 }
 
+enum UPGRADES {
+	TELEPORT,
+}
+
+var unlock_moments = { ##Level 1 = 0
+	1: UPGRADES.TELEPORT,
+}
+
+var unlocked_upgrades = {}
+
 signal level_cleared(coords: Vector2)
 signal game_over
 signal game_restart
@@ -30,3 +40,4 @@ signal create_game_over_fx(coords: Vector2)
 signal create_shooting_fx(coords: Vector2)
 signal create_boss_growl_fx(coords: Vector2)
 signal create_movement_fx(coords: Vector2)
+signal create_teleport_fx(coords: Vector2)

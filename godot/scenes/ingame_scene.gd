@@ -69,6 +69,10 @@ func _on_level_cleared(coords: Vector2):
 		victory_screen.visible = true
 		remove_level()
 		return
+		
+		
+	if Global.unlock_moments.has(current_level):
+		Global.unlocked_upgrades.set(Global.unlock_moments.get(current_level), null)
 
 	level_clear.visible = false
 	level_container.process_mode = Node.ProcessMode.PROCESS_MODE_ALWAYS
@@ -82,6 +86,7 @@ func _on_game_over():
 	game_over_screen.visible = true
 
 func _on_game_restart():
+	Global.unlocked_upgrades = {}
 	get_tree().reload_current_scene()
 
 func _on_player_health_change(health:int) -> void:
