@@ -3,6 +3,7 @@ extends Node2D
 @onready var fade_overlay = %FadeOverlay
 @onready var pause_overlay = %PauseOverlay
 @onready var level_container = %LevelContainer
+@onready var victory_screen = %VictoryScreen
 
 @onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level_1.tscn"),
@@ -35,12 +36,19 @@ func _input(event) -> void:
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
 
+func remove_level() -> void:
+	level_container.get_child(0).queue_free()	
+
+func next_level() -> void:
+	var new_level = levels[current_level].instantiate()
+	remove_level()
+	level_container.add_child(new_level)
+
 func _on_level_cleared():
 	current_level += 1
 	if current_level > max_levels:
-		# todo: show victory screen
-		current_level = 0
+		victory_screen.visible = true
+		remove_level()
+		return
 
-	var next_level = levels[current_level].instantiate()
-	level_container.get_child(0).queue_free()	
-	level_container.add_child(next_level)
+	next_level()
