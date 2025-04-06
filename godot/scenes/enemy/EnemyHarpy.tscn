@@ -27,7 +27,7 @@ animations = [{
 
 [node name="EnemyHarpy" type="Node2D"]
 
-[node name="FloatingEnemy" parent="." instance=ExtResource("1_jsmja")]
+[node name="FloatingEnemy" parent="." groups=["Enemy"] instance=ExtResource("1_jsmja")]
 slowness = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]

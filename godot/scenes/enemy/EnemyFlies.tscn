@@ -25,7 +25,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="EnemyFlies" type="Node2D"]
+[node name="EnemyFlies" type="Node2D" groups=["Enemy"]]
 
 [node name="FloatingEnemy" parent="." instance=ExtResource("1_8mtgo")]
 

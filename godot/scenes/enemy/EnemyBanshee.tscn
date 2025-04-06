@@ -25,7 +25,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyBanshee" type="Node2D"]
+[node name="EnemyBanshee" type="Node2D" groups=["Enemy"]]
 
 [node name="FloatingEnemy" parent="." instance=ExtResource("1_5yvvy")]
 slowness = 2
