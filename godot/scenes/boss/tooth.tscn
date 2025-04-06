@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://w7pilsgh6sen"]
+
+[ext_resource type="Script" uid="uid://c143um3lnnvuc" path="res://scenes/boss/tooth.gd" id="1_4iql1"]
+[ext_resource type="Texture2D" uid="uid://cnwyy6pddagh0" path="res://images/greedboss_tooth.png" id="2_taere"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_taere"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taere"]
+atlas = ExtResource("2_taere")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnfrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taere")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnfrp"]
+radius = 11.0
+
+[node name="Tooth1" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_4iql1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mnfrp")
+
+[node name="Hittable" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_taere")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_mnfrp")

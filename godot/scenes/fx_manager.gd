@@ -30,6 +30,7 @@ func _ready() -> void:
 	Global.create_game_over_fx.connect(_on_game_over)
 	Global.create_shooting_fx.connect(_on_shooting)
 	Global.create_boss_growl_fx.connect(_on_boss_growl)
+	Global.create_boss_death_fx.connect(_on_boss_death)
 	Global.create_movement_fx.connect(_on_movement)
 	
 	
@@ -69,6 +70,9 @@ func _on_shooting(coords: Vector2):
 	
 func _on_boss_growl(coords: Vector2):
 	bossgrowl_sound.play()
+	
+func _on_boss_death(coords: Vector2):
+	bossdeath_sound.play()
 	
 func _on_movement(coords: Vector2):
 	movement_sound.play()

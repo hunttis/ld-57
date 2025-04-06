@@ -29,6 +29,7 @@ func _on_health_changed(health: int) -> void:
 	Global.player_health_change.emit(health)
 
 func _on_hit(body: Area2D):
+	print("Au")
 	if body.get_parent().is_in_group("Enemy"):
 		_take_damage((body.get_parent()).damage)
 
