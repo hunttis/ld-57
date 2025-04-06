@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="PackedScene" uid="uid://jy5n107wbw8u" path="res://scenes/components/victory_screen.tscn" id="4_7v5ay"]
 [ext_resource type="PackedScene" uid="uid://chclxby2dol7b" path="res://scenes/components/game_over.tscn" id="5_2577t"]
-[ext_resource type="Script" path="res://scenes/components/game_over.gd" id="6_gadrd"]
+[ext_resource type="Script" uid="uid://01s8cg5yixjr" path="res://scenes/components/game_over.gd" id="6_gadrd"]
 [ext_resource type="Script" uid="uid://c6si5x6kuqyyu" path="res://scenes/fx_manager.gd" id="7_5jhce"]
 
 [node name="IngameScene" type="Node2D" groups=["GameScene"]]
