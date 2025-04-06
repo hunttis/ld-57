@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://db7ypdkftjb7o"]
+
+[ext_resource type="Texture2D" uid="uid://0ioxvdi8itaq" path="res://images/lust_female.png" id="1_frxug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rd6q"]
+atlas = ExtResource("1_frxug")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3p08"]
+atlas = ExtResource("1_frxug")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rd6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3p08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
