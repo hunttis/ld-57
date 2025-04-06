@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbdmb87qboq42"]
+
+[ext_resource type="Texture2D" uid="uid://p7thmg0lg01c" path="res://images/greedboss_top.png" id="1_2d0vx"]
+[ext_resource type="Script" path="res://scenes/boss/greed_boss.gd" id="1_uh4jd"]
+[ext_resource type="Texture2D" uid="uid://dpkrkfifksvcr" path="res://images/greedboss_bottom.png" id="2_uh4jd"]
+[ext_resource type="PackedScene" uid="uid://w7pilsgh6sen" path="res://scenes/boss/tooth.tscn" id="3_kwm22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10q0"]
+size = Vector2(60, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8leps"]
+size = Vector2(57, 53)
+
+[node name="GreedBoss" type="Node2D" groups=["Enemy"]]
+position = Vector2(539, 204)
+script = ExtResource("1_uh4jd")
+
+[node name="Top" type="Area2D" parent="."]
+z_index = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(1, -21.5)
+shape = SubResource("RectangleShape2D_m10q0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Top"]
+texture = ExtResource("1_2d0vx")
+
+[node name="Bottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(1.5, 28.5)
+shape = SubResource("RectangleShape2D_8leps")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom"]
+texture = ExtResource("2_uh4jd")
+
+[node name="Tooth1" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(-17, 26)
+
+[node name="Tooth2" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(-8, 29)
+
+[node name="Tooth3" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(2, 29)
+
+[node name="Tooth4" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(13, 25)
+
+[node name="Tooth5" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(-19, 17)
+
+[node name="Tooth6" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(-6, 19)
+
+[node name="Tooth7" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(3, 17)
+
+[node name="Tooth8" parent="." groups=["Tooth"] instance=ExtResource("3_kwm22")]
+position = Vector2(15, 15)

@@ -55,13 +55,13 @@ func next_level() -> void:
 
 func _on_level_cleared(coords: Vector2):
 	level_clear.visible = true
-	if bossHP.visible:
-		bossHP.hide()
+	bossHP.hide()
 	level_container.process_mode = Node.PROCESS_MODE_DISABLED
 	Global.create_level_complete_fx.emit(coords)
 	await get_tree().create_timer(2.0).timeout
 
 	current_level += 1
+	enemy_count.set_current_level(current_level)
 	if current_level > max_levels:
 		enemy_count.hide()
 		health_indicator.hide()
@@ -81,6 +81,7 @@ func _on_level_cleared(coords: Vector2):
 func _on_game_over():
 	get_viewport().set_input_as_handled()
 	remove_level()
+	bossHP.hide()
 	enemy_count.hide()
 	health_indicator.hide()
 	game_over_screen.visible = true
