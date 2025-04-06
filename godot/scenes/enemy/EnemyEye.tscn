@@ -41,6 +41,7 @@ cooldown_timer = NodePath("../Timer")
 metadata/_custom_type_script = "uid://bf2wuul71apu0"
 
 [node name="Timer" type="Timer" parent="ShootingEnemy"]
+one_shot = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oto4c")

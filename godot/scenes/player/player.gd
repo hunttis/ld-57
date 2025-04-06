@@ -5,6 +5,7 @@ class_name Player
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var default_gun: Gun = $AnimatedSprite/PlayerDefaultGun
 @onready var hitbox: Area2D = $Area2D
+@onready var bullet_hitbox: Hittable = $Hittable
 
 
 @export var speed = 300.0
@@ -19,6 +20,7 @@ func _ready():
 	health_component.on_death.connect(_on_death)
 	sprite.play("idle")
 	hitbox.area_entered.connect(_on_hit)
+	bullet_hitbox.got_hit.connect(health_component.take_damage)
 	Global.player_health_change.emit(health_component.max_health)
 
 

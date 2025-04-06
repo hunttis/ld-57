@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp4tw1eahrdao"]
+[gd_scene load_steps=9 format=3 uid="uid://cp4tw1eahrdao"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_6761a"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="1_x42e6"]
-[ext_resource type="PackedScene" uid="uid://xk1wsf8r6hfk" path="res://scenes/terrain/level_1_terrain.tscn" id="3_dga24"]
-[ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_oc4kc"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/level_1_terrain.tscn" id="3_dga24"]
+[ext_resource type="Script" path="res://scenes/components/camera_forwarding.gd" id="3_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="3_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="4_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="7_dga24"]
+[ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="7_oc4kc"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6761a")
@@ -75,3 +76,6 @@ position = Vector2(2809.94, 104.677)
 
 [node name="EnemyFlies13" parent="." instance=ExtResource("7_dga24")]
 position = Vector2(2736.94, 165.677)
+
+[node name="EnemyEye" parent="." instance=ExtResource("7_oc4kc")]
+position = Vector2(407, 32)
