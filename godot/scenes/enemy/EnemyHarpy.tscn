@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cys4why0dlufr"]
+[gd_scene load_steps=8 format=3 uid="uid://cys4why0dlufr"]
 
 [ext_resource type="PackedScene" uid="uid://c0wm460jbc5f" path="res://scenes/enemy/types/FloatingEnemy.tscn" id="1_jsmja"]
 [ext_resource type="Texture2D" uid="uid://c7o2xk7lngxs4" path="res://images/harpy.png" id="2_t5o65"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_t5o65"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cv6uu"]
 atlas = ExtResource("2_t5o65")
@@ -25,6 +26,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv6uu"]
+radius = 18.0278
+
 [node name="EnemyHarpy" type="Node2D"]
 
 [node name="FloatingEnemy" parent="." groups=["Enemy"] instance=ExtResource("1_jsmja")]
@@ -33,3 +37,13 @@ slowness = 3
 [node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
 sprite_frames = SubResource("SpriteFrames_mt3so")
 frame_progress = 0.960181
+
+[node name="Hittable" type="Area2D" parent="FloatingEnemy"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_t5o65")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingEnemy/Hittable"]
+shape = SubResource("CircleShape2D_cv6uu")

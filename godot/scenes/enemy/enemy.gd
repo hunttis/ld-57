@@ -4,17 +4,30 @@ extends RigidBody2D
 @onready var sprite = $Sprite
 @onready var enemy_path = $EnemyPath
 @onready var path_follower = $EnemyPath/PathFollower
+@onready var hitbox: Hittable = $Hittable
 
 var progress = 0
 var origin = position
 
 @export var hitpoints = 1
 @export var slowness = 1
+@export var damage = 1
+
+var team = Global.TEAM.Enemy
 
 func _ready():
 	sprite.play('default')
+	if hitbox != null:
+		hitbox.got_hit.connect(_take_damage)
+
 
 func _process(delta: float) -> void:
 	progress += delta / slowness
 	path_follower.progress_ratio = pingpong(progress, 1)
 	position = origin + path_follower.position
+
+
+func _take_damage(damage: int):
+	hitpoints -= damage
+	if hitpoints <= 0:
+		queue_free()
