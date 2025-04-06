@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtsswd23so6bp"]
+[gd_scene load_steps=12 format=3 uid="uid://dtsswd23so6bp"]
 
 [ext_resource type="Script" uid="uid://4vkhgl2wcht" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="SpriteFrames" uid="uid://dqc571m4e2y8g" path="res://images/bat_sprite.tres" id="2_75vfm"]
@@ -25,6 +25,9 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(14, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0owmy"]
+size = Vector2(14, 4)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lvxji")
 
@@ -32,6 +35,15 @@ script = ExtResource("1_lvxji")
 sprite_frames = ExtResource("2_75vfm")
 animation = &"move"
 frame_progress = 0.293681
+
+[node name="PlayerDefaultGun" parent="AnimatedSprite" instance=ExtResource("7_hdgt7")]
+position = Vector2(15, 5)
+cooldown = 0.1
+team = 1
+bullet_scene = ExtResource("6_0owmy")
+bullet_speed = 500.0
+bullet_damage = 1.0
+bullet_hit_count = 1
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]
 script = ExtResource("3_p47bc")
@@ -49,16 +61,9 @@ amount = 250
 texture = SubResource("PlaceholderTexture2D_lvxji")
 process_material = SubResource("ParticleProcessMaterial_lvxji")
 
-[node name="PlayerDefaultGun" parent="." instance=ExtResource("7_hdgt7")]
-position = Vector2(15, 5)
-cooldown = 0.1
-team = 1
-bullet_scene = ExtResource("6_0owmy")
-bullet_speed = 500.0
-bullet_damage = 1.0
-bullet_hit_count = 1
-
 [node name="Hittable" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("7_0owmy")
 team = 1
 metadata/_custom_type_script = "uid://b8k6ibtcwlme"
@@ -66,3 +71,7 @@ metadata/_custom_type_script = "uid://b8k6ibtcwlme"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_p47bc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0owmy")

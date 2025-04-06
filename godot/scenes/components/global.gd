@@ -2,7 +2,7 @@ extends Node
 
 enum TEAM {None, Player, Enemy, Neutral}
 
-signal level_cleared
+signal level_cleared(coords: Vector2)
 signal game_over
 signal game_restart
 

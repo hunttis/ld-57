@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb8yogcnqxpdc"]
+
+[ext_resource type="Texture2D" uid="uid://cjkrwms6dj0ns" path="res://images/dust.png" id="1_lijlt"]
+[ext_resource type="Script" uid="uid://o1ivr4s70fss" path="res://scenes/particle_fx/remove_on_end.gd" id="2_fvw3m"]
+
+[sub_resource type="Curve" id="Curve_lijlt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fvw3m"]
+curve = SubResource("Curve_lijlt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvw3m"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_fvw3m")
+
+[node name="EnemyHit" type="GPUParticles2D"]
+modulate = Color(0.986647, 0.0895517, 0, 1)
+emitting = false
+amount = 10
+texture = ExtResource("1_lijlt")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fvw3m")
+script = ExtResource("2_fvw3m")

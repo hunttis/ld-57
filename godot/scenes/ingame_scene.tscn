@@ -31,6 +31,29 @@ unique_name_in_owner = true
 visible = false
 script = ExtResource("6_gadrd")
 
+[node name="LevelCleared" type="CenterContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LevelCleared"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/LevelCleared/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Level cleared"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/LevelCleared/VBoxContainer"]
+layout_mode = 2
+text = "Rising up to the next level of hell"
+horizontal_alignment = 1
+
 [node name="LevelContainer" type="Node" parent="."]
 unique_name_in_owner = true
 
