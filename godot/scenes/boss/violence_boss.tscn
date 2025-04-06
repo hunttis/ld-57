@@ -114,6 +114,7 @@ position = Vector2(500, 135)
 script = ExtResource("1_l36nh")
 
 [node name="BossBody" type="CharacterBody2D" parent="."]
+collision_layer = 2
 motion_mode = 1
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody"]
@@ -134,6 +135,7 @@ rotates = false
 
 [node name="WeakPoint" type="CharacterBody2D" parent="BossBody"]
 position = Vector2(-11, -34)
+collision_layer = 2
 motion_mode = 1
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody/WeakPoint"]
@@ -145,6 +147,7 @@ shape = SubResource("CircleShape2D_rvv8k")
 
 [node name="Blocker" type="CharacterBody2D" parent="BossBody"]
 position = Vector2(-49, -37)
+collision_layer = 2
 motion_mode = 1
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody/Blocker"]
@@ -153,7 +156,6 @@ sprite_frames = SubResource("SpriteFrames_x8610")
 [node name="BlockerCollision" type="CollisionShape2D" parent="BossBody/Blocker"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_7aq0k")
-disabled = true
 
 [node name="BlockerPath" type="Path2D" parent="BossBody/Blocker"]
 position = Vector2(75, 51)
@@ -166,6 +168,7 @@ rotates = false
 
 [node name="Striker" type="CharacterBody2D" parent="BossBody"]
 position = Vector2(-92, 21)
+collision_layer = 2
 motion_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="BossBody/Striker"]
