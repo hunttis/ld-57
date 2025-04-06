@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dihkbcedp6ypt" path="res://scenes/terrain/level_6_terrain.tscn" id="4_5wshb"]
 [ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="5_b6i88"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="6_kydov"]
-[ext_resource type="PackedScene" uid="uid://cbdmb87qboq42" path="res://scenes/boss/greed_boss.tscn" id="7_7x7cx"]
+[ext_resource type="PackedScene" uid="uid://c52aoi17lppeo" path="res://scenes/boss/greed_boss.tscn" id="7_7x7cx"]
 
 [node name="Level6" type="Node"]
 script = ExtResource("1_5wshb")
