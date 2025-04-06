@@ -24,6 +24,7 @@ func shoot(direction: Vector2):
 			cooldown_timer.start(cooldown)
 		var node = bullet_scene.instantiate()
 		get_tree().get_first_node_in_group("GameScene").add_child(node)
+		Global.create_shooting_fx.emit(position)
 		if node is MovingBullet:
 			node.global_position = global_position
 			node.shoot(
