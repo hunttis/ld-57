@@ -2,6 +2,7 @@ extends Node
 
 var bullet_hit_scene = preload("res://scenes/particle_fx/AmmoHit.tscn")
 var level_complete_scene = preload("res://scenes/particle_fx/BatLeave.tscn")
+var nondamaging_hit_scene = preload("res://scenes/particle_fx/NondamagingHit.tscn")
 
 var game_scene: Node2D
 
@@ -16,17 +17,17 @@ func _ready() -> void:
 	Global.create_level_complete_fx.connect(_on_level_complete)
 	
 func _on_bullet_hit(coords: Vector2):
-	print("Bullet hit!")
-	pass
+	var bullet_hit_effect = bullet_hit_scene.instantiate()
+	_add_to_scene(bullet_hit_effect, coords)
 
 func _on_enemy_death(coords: Vector2):
 	print("Enemy death!")
 	pass
 
 func _on_nondamaging_hit(coords: Vector2):
-	print("Nondamaging hit!")
-	pass
-
+	var nondamaging_hit_effect = nondamaging_hit_scene.instantiate()
+	_add_to_scene(nondamaging_hit_scene, coords)
+	
 func _on_player_hit(coords: Vector2):
 	print("Player hit!")
 	pass
@@ -38,5 +39,8 @@ func _on_enemy_hit(coords: Vector2):
 func _on_level_complete(coords: Vector2):
 	print("Level complete!")
 	var level_complete_effect = level_complete_scene.instantiate()
-	game_scene.add_child(level_complete_effect)
-	level_complete_effect.position = coords
+	_add_to_scene(level_complete_effect, coords)
+
+func _add_to_scene(fx, coords):
+	game_scene.add_child(fx)
+	fx.position = coords
