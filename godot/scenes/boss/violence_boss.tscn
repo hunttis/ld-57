@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://j4lf47knpm4f"]
+[gd_scene load_steps=24 format=3 uid="uid://j4lf47knpm4f"]
 
 [ext_resource type="Script" uid="uid://b38u6bu17w4pc" path="res://scenes/boss/violence_boss.gd" id="1_l36nh"]
 [ext_resource type="Texture2D" uid="uid://cql8puvmbaw5u" path="res://images/violenceboss.png" id="2_23uh7"]
 [ext_resource type="Texture2D" uid="uid://dv68a1l1oiaks" path="res://images/violenceboss_weakspot.png" id="3_1vlja"]
 [ext_resource type="Texture2D" uid="uid://c5oa0g0sj4kdc" path="res://images/violenceboss_blocker.png" id="3_7aq0k"]
 [ext_resource type="Texture2D" uid="uid://do6uykidpfd5s" path="res://images/violenceboss_striker.png" id="4_b7804"]
+[ext_resource type="Script" uid="uid://cn8ddvx10harv" path="res://scenes/boss/striker.gd" id="5_rvv8k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7aq0k"]
 atlas = ExtResource("2_23uh7")
@@ -170,6 +171,7 @@ rotates = false
 position = Vector2(-92, 21)
 collision_layer = 2
 motion_mode = 1
+script = ExtResource("5_rvv8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="BossBody/Striker"]
 texture = ExtResource("4_b7804")
@@ -194,6 +196,41 @@ scale = Vector2(0.304348, 0.718841)
 curve = SubResource("Curve2D_rvv8k")
 
 [node name="Follower" type="PathFollow2D" parent="BossBody/Striker/StrikerStrikePath"]
+position = Vector2(-72.2858, 23)
+rotation = -1.72808
+loop = false
+
+[node name="Striker2" type="CharacterBody2D" parent="BossBody"]
+z_index = -10
+position = Vector2(-66, -9)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("5_rvv8k")
+striker_progress = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="BossBody/Striker2"]
+texture = ExtResource("4_b7804")
+
+[node name="StrikerCollision" type="CollisionShape2D" parent="BossBody/Striker2"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_1vlja")
+
+[node name="StrikerIdlePath" type="Path2D" parent="BossBody/Striker2"]
+position = Vector2(44, -15.0667)
+scale = Vector2(0.304348, 0.718841)
+curve = SubResource("Curve2D_1vlja")
+
+[node name="Follower" type="PathFollow2D" parent="BossBody/Striker2/StrikerIdlePath"]
+position = Vector2(-72.2858, 23)
+rotation = -1.72808
+loop = false
+
+[node name="StrikerStrikePath" type="Path2D" parent="BossBody/Striker2"]
+position = Vector2(44, -15.0667)
+scale = Vector2(0.304348, 0.718841)
+curve = SubResource("Curve2D_rvv8k")
+
+[node name="Follower" type="PathFollow2D" parent="BossBody/Striker2/StrikerStrikePath"]
 position = Vector2(-72.2858, 23)
 rotation = -1.72808
 loop = false
