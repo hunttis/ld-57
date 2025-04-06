@@ -24,7 +24,6 @@ func _ready():
 	bullet_hitbox.got_hit.connect(health_component.take_damage)
 	Global.player_health_change.emit(health_component.max_health)
 
-
 func _on_health_changed(health: int) -> void:
 	print("Health changed to: ", health)
 	Global.player_health_change.emit(health)
@@ -33,7 +32,6 @@ func _on_hit(body: Area2D):
 	if damage_cooldown == 0 && body.get_parent().is_in_group("Enemy"):
 		health_component.take_damage((body.get_parent()).damage)
 		damage_cooldown = 0.5
-		return
 
 func _on_death():
 	print("player dies here")
