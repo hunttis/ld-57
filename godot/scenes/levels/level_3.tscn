@@ -17,6 +17,7 @@ position = Vector2(287, 185)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 script = ExtResource("3_fkk1g")
+only_right = true
 
 [node name="TerrainScene" parent="." instance=ExtResource("3_ftfob")]
 z_index = -5
