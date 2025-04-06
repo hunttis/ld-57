@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_ftfob"]
-[ext_resource type="PackedScene" uid="uid://kouan0th5t80" path="res://scenes/terrain/terrain_scene.tscn" id="3_fkk1g"]
-[ext_resource type="Texture2D" uid="uid://4e170y3p8fd2" path="res://images/background.png" id="4_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://c6hyw86ag4xr1" path="res://scenes/terrain/level_3_terrain.tscn" id="3_ftfob"]
+[ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="4_ftfob"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="5_pimnq"]
-[ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="6_ftfob"]
+[ext_resource type="PackedScene" uid="uid://j4lf47knpm4f" path="res://scenes/boss/violence_boss.tscn" id="7_fkk1g"]
 
-[node name="Level1" type="Node"]
+[node name="Level3" type="Node"]
 script = ExtResource("1_fmg3e")
 
 [node name="Player" parent="." instance=ExtResource("2_ftfob")]
@@ -16,17 +16,17 @@ position = Vector2(287, 185)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="TerrainScene" parent="." instance=ExtResource("3_fkk1g")]
-modulate = Color(0.122374, 0.483335, 0.429504, 1)
+[node name="TerrainScene" parent="." instance=ExtResource("3_ftfob")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+self_modulate = Color(0.43701, 0.00841052, 4.81308e-08, 1)
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_ugcn1")
+texture = ExtResource("4_ftfob")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("5_pimnq")]
@@ -36,5 +36,5 @@ limit_smoothed = true
 position_smoothing_enabled = true
 script = null
 
-[node name="EnemyFlies" parent="." instance=ExtResource("6_ftfob")]
-position = Vector2(535, 181)
+[node name="ViolenceBoss" parent="." groups=["Enemy"] instance=ExtResource("7_fkk1g")]
+position = Vector2(1009, 132)

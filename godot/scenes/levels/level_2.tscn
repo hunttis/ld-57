@@ -11,6 +11,7 @@
 script = ExtResource("1_l37oo")
 
 [node name="Player" parent="." instance=ExtResource("2_qpwj6")]
+modulate = Color(0.776033, 0, 0.24291, 1)
 position = Vector2(858, 171)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
