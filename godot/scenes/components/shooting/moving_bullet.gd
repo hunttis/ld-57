@@ -25,6 +25,8 @@ func shoot(
 	
 	if animated_sprite != null && direction.x != 0:
 		animated_sprite.scale.x = sign(direction.x)
+
+	animated_sprite.play("default")
 	
 	
 func stop():
