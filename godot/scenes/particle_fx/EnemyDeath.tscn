@@ -10,7 +10,7 @@ colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_30hxj")
 
 [sub_resource type="Curve" id="Curve_r0cl4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.777372, 0.735772), -1.88631, -1.88631, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.534884, 0.41573), -1.88631, -1.88631, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_mbfu2"]
@@ -24,7 +24,7 @@ angle_min = 1.07288e-05
 angle_max = 180.0
 spread = 180.0
 initial_velocity_min = 20.0
-initial_velocity_max = 50.0
+initial_velocity_max = 300.0
 gravity = Vector3(0, 49, 0)
 scale_min = 0.5
 scale_max = 2.0
@@ -33,8 +33,9 @@ color_initial_ramp = SubResource("GradientTexture1D_cdmwa")
 
 [node name="EnemyDeath" type="GPUParticles2D"]
 emitting = false
-amount = 100
+amount = 400
 texture = ExtResource("1_dd6vj")
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.8
 fixed_fps = 60
