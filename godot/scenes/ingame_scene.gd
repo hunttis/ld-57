@@ -5,6 +5,7 @@ extends Node2D
 @onready var level_container = %LevelContainer
 @onready var victory_screen = %VictoryScreen
 @onready var game_over_screen = %GameOver
+@onready var level_clear = %LevelCleared
 
 @onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level_1.tscn"),
@@ -47,13 +48,22 @@ func next_level() -> void:
 	remove_level()
 	level_container.add_child(new_level)
 
-func _on_level_cleared():
+func _on_level_cleared(coords: Vector2):
+
+	level_clear.visible = true
+	level_container.process_mode = Node.PROCESS_MODE_DISABLED
+	Global.create_level_complete_fx.emit(coords)
+	await get_tree().create_timer(2.0).timeout
+
 	current_level += 1
 	if current_level > max_levels:
+		level_clear.visible = false
 		victory_screen.visible = true
 		remove_level()
 		return
 
+	level_clear.visible = false
+	level_container.process_mode = Node.ProcessMode.PROCESS_MODE_ALWAYS
 	next_level()
 
 func _on_game_over():
