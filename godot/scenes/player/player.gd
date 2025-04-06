@@ -4,6 +4,7 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var default_gun: Gun = $AnimatedSprite/PlayerDefaultGun
+@onready var hurtbox: Hittable = $Hittable
 
 
 @export var speed = 300.0
@@ -16,10 +17,16 @@ var last_direction: int = 1
 func _ready():
 	health_component.on_health_changed.connect(_on_health_changed)
 	health_component.on_death.connect(_on_death)
+	hurtbox.got_hit.connect(_on_hit)
 	sprite.play("idle")
+
 
 func _on_health_changed(health: int) -> void:
 	print("Health changed to: ", health)
+
+func _on_hit():
+	print("Player got hit")
+	health_component.take_damage(1)
 
 func _on_death():
 	print("player dies here")
