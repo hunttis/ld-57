@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4tw1eahrdao"]
+[gd_scene load_steps=11 format=3 uid="uid://cp4tw1eahrdao"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_6761a"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="1_x42e6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="4_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="7_dga24"]
 [ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="8_s8va5"]
+[ext_resource type="PackedScene" uid="uid://c52aoi17lppeo" path="res://scenes/boss/greed_boss.tscn" id="9_dga24"]
 
 [sub_resource type="Curve2D" id="Curve2D_dga24"]
 _data = {
@@ -89,3 +90,6 @@ path = NodePath("Path2D")
 
 [node name="Path2D" type="Path2D" parent="EnemyWorm"]
 curve = SubResource("Curve2D_dga24")
+
+[node name="GreedBoss" parent="." instance=ExtResource("9_dga24")]
+position = Vector2(386, 69)
