@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c52aoi17lppeo"]
 
 [ext_resource type="Texture2D" uid="uid://p7thmg0lg01c" path="res://images/greedboss_top.png" id="1_2d0vx"]
-[ext_resource type="Script" path="res://scenes/boss/greed_boss.gd" id="1_uh4jd"]
+[ext_resource type="Script" uid="uid://dqb5bdnu4xbkm" path="res://scenes/boss/greed_boss.gd" id="1_uh4jd"]
 [ext_resource type="Texture2D" uid="uid://dpkrkfifksvcr" path="res://images/greedboss_bottom.png" id="2_uh4jd"]
 [ext_resource type="PackedScene" uid="uid://w7pilsgh6sen" path="res://scenes/boss/tooth.tscn" id="3_kwm22"]
 
