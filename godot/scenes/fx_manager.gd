@@ -5,6 +5,7 @@ var level_complete_scene = preload("res://scenes/particle_fx/BatLeave.tscn")
 var nondamaging_hit_scene = preload("res://scenes/particle_fx/NondamagingHit.tscn")
 var enemy_hit_scene = preload("res://scenes/particle_fx/EnemyHit.tscn")
 var player_hit_scene = preload("res://scenes/particle_fx/PlayerHit.tscn")
+var enemy_death_scene = preload("res://scenes/particle_fx/EnemyDeath.tscn")
 
 var game_scene: Node2D
 
@@ -23,8 +24,8 @@ func _on_bullet_hit(coords: Vector2):
 	_add_to_scene(bullet_hit_effect, coords)
 
 func _on_enemy_death(coords: Vector2):
-	print("Enemy death!")
-	pass
+	var enemy_death_effect = enemy_death_scene.instantiate()
+	_add_to_scene(enemy_death_effect, coords)
 
 func _on_nondamaging_hit(coords: Vector2):
 	var nondamaging_hit_effect = nondamaging_hit_scene.instantiate()
@@ -39,7 +40,6 @@ func _on_enemy_hit(coords: Vector2):
 	_add_to_scene(enemy_hit_effect, coords)
 
 func _on_level_complete(coords: Vector2):
-	print("Level complete!")
 	var level_complete_effect = level_complete_scene.instantiate()
 	_add_to_scene(level_complete_effect, coords)
 
