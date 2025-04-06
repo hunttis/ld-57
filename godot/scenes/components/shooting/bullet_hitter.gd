@@ -20,17 +20,19 @@ func _process(delta):
 	if duration <= 0:
 		stopped.emit()
 
-func _on_area_entered(area: Area2D):
-	if area is not Hittable:
+func _on_body_entered(body: Node2D):
+	if body is not Hittable:
 		stopped.emit()
-	if hits.has(area):
+		Global.create_nondamaging_hit_fx.emit()
 		return
-	if area.team == team:
+	if hits.has(body):
 		return
-	area.hit(damage)
+	if body.team == team:
+		return
+	body.hit(damage)
 	hit_something.emit()
 	if infinite_hits:
 		return
-	hits.set(area, null)
+	hits.set(body, null)
 	if hits.size() >= hit_count:
 		stopped.emit()

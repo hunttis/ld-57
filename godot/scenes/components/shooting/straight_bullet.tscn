@@ -6,10 +6,11 @@
 [ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="4_8n2ry"]
 [ext_resource type="SpriteFrames" uid="uid://omarp61vxec3" path="res://images/fireball_sprite.tres" id="5_t35k5"]
 
-[node name="StraightBullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values")]
+[node name="StraightBullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values", "animated_sprite")]
 script = ExtResource("1_01i72")
 hitter = NodePath("BulletHitter")
 move_values = NodePath("StraightMover/MovementValues")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="BulletHitter" parent="." instance=ExtResource("2_gy1i1")]
 

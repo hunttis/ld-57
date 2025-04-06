@@ -9,7 +9,6 @@ func shoot(
 		team: Global.TEAM, direction: Vector2, damage: float = 0, hit_count: int = 1,
 		infinite_hits: bool = false, speed: float = 0,
 		acceleration: float = 0, can_go_negative = false,
-		sprite_frames: SpriteFrames = null
 	):
 	hitter.damage = damage
 	hitter.hit_count = hit_count
@@ -23,9 +22,10 @@ func shoot(
 	move_values.direction = direction
 	move_values.can_go_negative = can_go_negative
 	move_values.root = self
-	if animated_sprite != null && sprite_frames != null:
-		animated_sprite.sprite_frames = sprite_frames
-		animated_sprite.play()
+	
+	if animated_sprite != null && direction.x != 0:
+		animated_sprite.scale.x = sign(direction.x)
+	
 	
 func stop():
 	print("bullet stopped")

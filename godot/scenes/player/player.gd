@@ -41,6 +41,7 @@ func _process(_delta):
 
 	if Input.is_action_pressed(("shoot")):
 		default_gun.shoot(Vector2(last_direction, 0))
+		sprite.play("move")
 
 
 func _physics_process(delta: float) -> void:
@@ -54,7 +55,9 @@ func _physics_process(delta: float) -> void:
 			sprite.scale.x = sign(direction.x)
 	else:
 		velocity = velocity / deceleration
-		sprite.play("idle")
+		
+		if !Input.is_action_pressed(("shoot")):
+			sprite.play("idle")
 	if direction.x != 0:
 		last_direction = sign(direction.x)
 
