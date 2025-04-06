@@ -19,10 +19,9 @@ var movement: Tween
 
 func _ready():
 	$BossBody/Sprite2D.play('default')
-	$BossBody/WeakPoint/Sprite2D.play('default')
+	$BossBody/Hittable/Sprite2D.play('default')
 
 func _process(delta: float) -> void:
-	
 	body_progress += delta / 10
 	bodypathfollower.progress_ratio = pingpong(body_progress, 1)
 	bossbody.position = body_origin + bodypathfollower.position 

@@ -15,6 +15,8 @@ var striker_attack = false
 
 func _process(delta: float) -> void:
 
+	
+
 	if striker_progress > 1 && !striker_attack:
 		print("One loop done!")
 		striker_loops += 1

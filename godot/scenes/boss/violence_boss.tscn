@@ -1,11 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://j4lf47knpm4f"]
+[gd_scene load_steps=26 format=3 uid="uid://j4lf47knpm4f"]
 
 [ext_resource type="Script" uid="uid://b38u6bu17w4pc" path="res://scenes/boss/violence_boss.gd" id="1_l36nh"]
 [ext_resource type="Texture2D" uid="uid://cql8puvmbaw5u" path="res://images/violenceboss.png" id="2_23uh7"]
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="2_31y1n"]
 [ext_resource type="Texture2D" uid="uid://dv68a1l1oiaks" path="res://images/violenceboss_weakspot.png" id="3_1vlja"]
 [ext_resource type="Texture2D" uid="uid://c5oa0g0sj4kdc" path="res://images/violenceboss_blocker.png" id="3_7aq0k"]
 [ext_resource type="Texture2D" uid="uid://do6uykidpfd5s" path="res://images/violenceboss_striker.png" id="4_b7804"]
 [ext_resource type="Script" uid="uid://cn8ddvx10harv" path="res://scenes/boss/striker.gd" id="5_rvv8k"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="7_x8610"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7aq0k"]
 atlas = ExtResource("2_23uh7")
@@ -46,6 +48,9 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvv8k"]
+radius = 15.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8610"]
 atlas = ExtResource("3_1vlja")
 region = Rect2(0, 0, 64, 64)
@@ -67,9 +72,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rvv8k"]
-radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvv8k"]
 atlas = ExtResource("3_7aq0k")
@@ -114,9 +116,12 @@ point_count = 7
 position = Vector2(500, 135)
 script = ExtResource("1_l36nh")
 
-[node name="BossBody" type="CharacterBody2D" parent="."]
+[node name="BossBody" type="CharacterBody2D" parent="." groups=["Enemy"]]
 collision_layer = 2
 motion_mode = 1
+script = ExtResource("2_31y1n")
+hitpoints = 50
+damage = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody"]
 sprite_frames = SubResource("SpriteFrames_rvv8k")
@@ -134,17 +139,21 @@ position = Vector2(50, -45)
 rotation = 2.1588
 rotates = false
 
-[node name="WeakPoint" type="CharacterBody2D" parent="BossBody"]
-position = Vector2(-11, -34)
+[node name="Hittable" type="Area2D" parent="BossBody"]
+position = Vector2(4, 0)
 collision_layer = 2
-motion_mode = 1
+script = ExtResource("7_x8610")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody/WeakPoint"]
+[node name="WeakPointCollision" type="CollisionShape2D" parent="BossBody/Hittable"]
+position = Vector2(-11, -34)
+shape = SubResource("CircleShape2D_rvv8k")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody/Hittable"]
+position = Vector2(-11, -34)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lvygf")
-
-[node name="WeakPointCollision" type="CollisionShape2D" parent="BossBody/WeakPoint"]
-shape = SubResource("CircleShape2D_rvv8k")
 
 [node name="Blocker" type="CharacterBody2D" parent="BossBody"]
 position = Vector2(-49, -37)
@@ -167,7 +176,7 @@ position = Vector2(-74, -49)
 rotation = -1.94063
 rotates = false
 
-[node name="Striker" type="CharacterBody2D" parent="BossBody"]
+[node name="Striker" type="CharacterBody2D" parent="BossBody" groups=["Enemy"]]
 position = Vector2(-56, -3)
 collision_layer = 2
 motion_mode = 1
@@ -200,7 +209,7 @@ position = Vector2(-72.2858, 23)
 rotation = -1.72808
 loop = false
 
-[node name="Striker2" type="CharacterBody2D" parent="BossBody"]
+[node name="Striker2" type="CharacterBody2D" parent="BossBody" groups=["Enemy"]]
 z_index = -10
 position = Vector2(-32, -35)
 collision_layer = 2

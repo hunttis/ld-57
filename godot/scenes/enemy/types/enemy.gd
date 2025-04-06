@@ -13,11 +13,12 @@ var origin = position
 var team = Global.TEAM.Enemy
 
 func _ready():
-	if hitbox != null:
-		hitbox.got_hit.connect(_take_damage)
-	sprite.play('default')
+	hitbox.got_hit.connect(_take_damage)
+	if sprite:
+		sprite.play('default')
 
 func _take_damage(incoming_damage: int):
+	print("Took damage! ", str(incoming_damage), " / ", str(hitpoints))
 	hitpoints -= incoming_damage
 	if hitpoints <= 0:
 		Global.create_enemy_death_fx.emit(global_position)
