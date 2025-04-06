@@ -165,24 +165,40 @@ script = ExtResource("7_5jhce")
 
 [node name="BatHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_hysgw")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="BossGrowlSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_telmm")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="BossDeathSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = ExtResource("16_bmd0x")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_pmf6l")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_3egxp")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="LevelClearSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_fpum5")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="MovementSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_fbq86")
+max_distance = 100000.0
+attenuation = 1e-05
 
 [node name="ShootingSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_er0xd")
+max_distance = 100000.0
+attenuation = 1e-05
