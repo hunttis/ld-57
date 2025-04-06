@@ -6,6 +6,7 @@ extends Node2D
 @onready var victory_screen = %VictoryScreen
 @onready var game_over_screen = %GameOver
 @onready var level_clear = %LevelCleared
+@onready var health_indicator = %Health
 
 @onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level_1.tscn"),
@@ -23,6 +24,7 @@ func _ready() -> void:
 	Global.level_cleared.connect(_on_level_cleared)
 	Global.game_restart.connect(_on_game_restart)
 	Global.game_over.connect(_on_game_over)
+	Global.player_health_change.connect(_on_player_health_change)
 
 	if SaveGame.has_save():
 		SaveGame.load_game(get_tree())
@@ -73,3 +75,6 @@ func _on_game_over():
 
 func _on_game_restart():
 	get_tree().reload_current_scene()
+
+func _on_player_health_change(health:int) -> void:
+	health_indicator.set_health(health)

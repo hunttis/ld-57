@@ -5,6 +5,7 @@ enum TEAM {None, Player, Enemy, Neutral}
 signal level_cleared(coords: Vector2)
 signal game_over
 signal game_restart
+signal player_health_change(new_health: int)
 
 signal create_bullet_hit_fx(coords: Vector2)
 signal create_player_hit_fx(coords: Vector2)

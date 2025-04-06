@@ -19,10 +19,12 @@ func _ready():
 	health_component.on_death.connect(_on_death)
 	sprite.play("idle")
 	hitbox.area_entered.connect(_on_hit)
+	Global.player_health_change.emit(health_component.max_health)
 
 
 func _on_health_changed(health: int) -> void:
 	print("Health changed to: ", health)
+	Global.player_health_change.emit(health)
 
 func _on_hit(body: Area2D):
 	if body.get_parent().is_in_group("Enemy"):
