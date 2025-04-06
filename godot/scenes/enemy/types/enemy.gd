@@ -4,9 +4,6 @@ class_name Enemy
 @onready var hitbox: Hittable = $Hittable
 @onready var sprite = $Sprite
 
-var progress = 0
-var origin = position
-
 @export var hitpoints = 1
 @export var damage = 1
 
@@ -14,6 +11,7 @@ var team = Global.TEAM.Enemy
 
 func _ready():
 	hitbox.got_hit.connect(_take_damage)
+	add_to_group('Enemy')
 	if sprite:
 		sprite.play('default')
 
