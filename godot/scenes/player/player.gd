@@ -13,6 +13,7 @@ class_name Player
 @export_range(1.0, 2.0) var deceleration: float = 1.2
 
 var last_direction = 0
+var damage_cooldown: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,8 +30,9 @@ func _on_health_changed(health: int) -> void:
 	Global.player_health_change.emit(health)
 
 func _on_hit(body: Area2D):
-	if body.get_parent().is_in_group("Enemy"):
-		health_component.take_damage((body.get_parent() as Enemy).damage)
+	if damage_cooldown == 0 && body.get_parent().is_in_group("Enemy"):
+		health_component.take_damage((body.get_parent()).damage)
+		damage_cooldown = 0.5
 		return
 
 func _on_death():
@@ -38,8 +40,7 @@ func _on_death():
 	sprite.hide()
 	Global.game_over.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed(("debug0")):
 		print("player took damage")
 		health_component.take_damage(1)
@@ -49,7 +50,12 @@ func _process(_delta):
 			last_direction = 1
 		default_gun.shoot(Vector2(last_direction, 0))
 		sprite.play("move")
-
+		
+	damage_cooldown -= delta
+	
+	if damage_cooldown < 0:
+		damage_cooldown = 0
+		
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

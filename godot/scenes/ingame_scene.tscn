@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chclxby2dol7b" path="res://scenes/components/game_over.tscn" id="5_2577t"]
 [ext_resource type="Script" uid="uid://01s8cg5yixjr" path="res://scenes/components/game_over.gd" id="6_gadrd"]
 [ext_resource type="Script" uid="uid://c6si5x6kuqyyu" path="res://scenes/fx_manager.gd" id="7_5jhce"]
-[ext_resource type="Script" path="res://scenes/health.gd" id="7_vus8m"]
+[ext_resource type="Script" uid="uid://dtkvhkv2onuwd" path="res://scenes/health.gd" id="7_vus8m"]
 [ext_resource type="PackedScene" uid="uid://ei2w5rhit0yn" path="res://scenes/components/health.tscn" id="8_1sh3m"]
 [ext_resource type="Script" uid="uid://bkuq0o44c2bmp" path="res://scenes/enemy_count.gd" id="9_etwux"]
 

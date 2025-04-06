@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var strikeridlepathfollower = $StrikerIdlePath/Follower
 @onready var strikerstrikepath = $StrikerStrikePath
 @onready var strikerstrikepathfollower = $StrikerStrikePath/Follower
+@onready var collision_area = $CollisionArea
 
 @export var slowness = 1
 
@@ -11,11 +12,9 @@ var striker_origin = position
 @export var striker_progress: float = 0
 var striker_loops = 0
 var striker_attack = false
-
+var damage = 2
 
 func _process(delta: float) -> void:
-
-	
 
 	if striker_progress > 1 && !striker_attack:
 		print("One loop done!")
@@ -42,3 +41,7 @@ func _process(delta: float) -> void:
 	
 	striker_progress += delta / slowness
 	
+
+
+func _on_collision_area_area_entered(area: Area2D) -> void:
+	print("area collided !", area.get_parent().name)

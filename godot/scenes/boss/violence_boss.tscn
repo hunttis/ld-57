@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://j4lf47knpm4f"]
+[gd_scene load_steps=27 format=3 uid="uid://j4lf47knpm4f"]
 
 [ext_resource type="Script" uid="uid://b38u6bu17w4pc" path="res://scenes/boss/violence_boss.gd" id="1_l36nh"]
 [ext_resource type="Texture2D" uid="uid://cql8puvmbaw5u" path="res://images/violenceboss.png" id="2_23uh7"]
@@ -97,6 +97,9 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_31y1n"]
+radius = 20.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vlja"]
 radius = 17.066
 
@@ -182,6 +185,12 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("5_rvv8k")
 
+[node name="StrikerCollisionArea" type="Area2D" parent="BossBody/Striker"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBody/Striker/StrikerCollisionArea"]
+shape = SubResource("CircleShape2D_31y1n")
+
 [node name="Sprite2D" type="Sprite2D" parent="BossBody/Striker"]
 texture = ExtResource("4_b7804")
 
@@ -217,6 +226,12 @@ motion_mode = 1
 script = ExtResource("5_rvv8k")
 striker_progress = 0.5
 
+[node name="StrikerCollisionArea2" type="Area2D" parent="BossBody/Striker2"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBody/Striker2/StrikerCollisionArea2"]
+shape = SubResource("CircleShape2D_31y1n")
+
 [node name="Sprite2D" type="Sprite2D" parent="BossBody/Striker2"]
 texture = ExtResource("4_b7804")
 
@@ -243,3 +258,5 @@ curve = SubResource("Curve2D_rvv8k")
 position = Vector2(-72.2858, 23)
 rotation = -1.72808
 loop = false
+
+[connection signal="area_entered" from="BossBody/Striker/StrikerCollisionArea" to="BossBody/Striker" method="_on_collision_area_area_entered"]
