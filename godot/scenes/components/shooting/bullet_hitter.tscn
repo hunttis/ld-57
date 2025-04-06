@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2fjh2kmocdfb"]
 
-[ext_resource type="Script" path="res://scenes/components/shooting/bullet_hitter.gd" id="1_fhkgt"]
+[ext_resource type="Script" uid="uid://c1ixa2ewmgywe" path="res://scenes/components/shooting/bullet_hitter.gd" id="1_fhkgt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfo3a"]
 
