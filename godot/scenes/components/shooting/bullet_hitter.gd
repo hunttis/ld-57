@@ -8,14 +8,17 @@ var damage: float = 0
 var duration: float
 var has_duration: bool = false
 
+@onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+
 var hits = {}
 
-signal stopped()
-signal hit_something()
+signal stopped(hit: bool)
+signal hit_something(enemy: bool)
 
 func _ready():
 	body_entered.connect(_on_collision)
 	area_entered.connect(_on_collision)
+	notifier.screen_exited.connect(_on_screen_exit)
 
 func _process(delta):
 	if !has_duration:
@@ -23,12 +26,12 @@ func _process(delta):
 
 	duration -= delta
 	if duration <= 0:
-		stopped.emit()
+		stopped.emit(false)
 
 func _on_collision(body: Node2D):
 	if body is not Hittable:
 		hit_something.emit(false)
-		stopped.emit()
+		stopped.emit(true)
 		return
 
 	if hits.has(body):
@@ -45,4 +48,7 @@ func _on_collision(body: Node2D):
 
 	hits.set(body, null)
 	if hits.size() >= hit_count:
-		stopped.emit()
+		stopped.emit(true)
+
+func _on_screen_exit():
+	stopped.emit(true)

@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dqc571m4e2y8g" path="res://images/bat_sprite.tres" id="2_75vfm"]
 [ext_resource type="Script" uid="uid://7pnav6fettye" path="res://scenes/components/health_component.gd" id="3_p47bc"]
 [ext_resource type="AudioStream" uid="uid://dc2y7kqkehsn4" path="res://sounds/death.wav" id="5_p47bc"]
-[ext_resource type="PackedScene" uid="uid://dbegx3jiouvlh" path="res://scenes/components/shooting/straight_bullet.tscn" id="6_0owmy"]
+[ext_resource type="PackedScene" uid="uid://bjwd0hkc34w2n" path="res://scenes/components/shooting/player_trigun.tscn" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="7_0owmy"]
 [ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="7_hdgt7"]
 
@@ -34,6 +34,8 @@ size = Vector2(14, 9)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_lvxji")
+teleport_max_cooldown = 3
+teleport_distance = 129
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_75vfm")
@@ -42,11 +44,16 @@ frame_progress = 0.293681
 
 [node name="PlayerDefaultGun" parent="AnimatedSprite" instance=ExtResource("7_hdgt7")]
 position = Vector2(15, 5)
+
+[node name="PlayerTrigun" parent="AnimatedSprite" instance=ExtResource("5_qek5x")]
+position = Vector2(15, 5)
 cooldown = 0.1
 team = 1
-bullet_scene = ExtResource("6_0owmy")
-bullet_speed = 500.0
-bullet_damage = 1.0
+bullet_speed = 1000.0
+bullet_acceleration = -2000.0
+bullet_has_duration = true
+bullet_duration = 0.5
+bullet_damage = 3.0
 bullet_hit_count = 1
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("death_particle", "death_audio")]

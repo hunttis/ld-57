@@ -16,10 +16,12 @@ enum LAYERS {
 
 enum UPGRADES {
 	TELEPORT,
+	TRIGUN
 }
 
 var unlock_moments = { ##Level 1 = 0
 	1: UPGRADES.TELEPORT,
+	3: UPGRADES.TRIGUN,
 }
 
 var unlocked_upgrades = {}

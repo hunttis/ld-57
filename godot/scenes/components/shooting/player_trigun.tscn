@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjwd0hkc34w2n"]
+
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="1_8xse0"]
+[ext_resource type="PackedScene" uid="uid://cskm8ftpnx2ji" path="res://scenes/components/shooting/tribullet.tscn" id="2_g8oni"]
+
+[node name="PlayerTrigun" type="Node2D" node_paths=PackedStringArray("cooldown_timer")]
+script = ExtResource("1_8xse0")
+bullet_scene = ExtResource("2_g8oni")
+cooldown_timer = NodePath("Cooldown")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

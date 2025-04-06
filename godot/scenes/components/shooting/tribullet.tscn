@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cskm8ftpnx2ji"]
+
+[ext_resource type="Script" uid="uid://b7er026mjllw8" path="res://scenes/components/shooting/moving_bullet.gd" id="1_54b28"]
+[ext_resource type="PackedScene" uid="uid://b2fjh2kmocdfb" path="res://scenes/components/shooting/bullet_hitter.tscn" id="2_pkkbm"]
+[ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="3_yj8tr"]
+[ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="4_tobdk"]
+[ext_resource type="SpriteFrames" uid="uid://daamt5tfb5bdb" path="res://images/trigun_sprite.tres" id="5_yj8tr"]
+[ext_resource type="PackedScene" uid="uid://2enpxv4ek44" path="res://scenes/components/shooting/player_default_gun.tscn" id="6_pkkbm"]
+[ext_resource type="Script" uid="uid://drt334bmp8olr" path="res://scenes/components/shooting/bullet_splitter.gd" id="6_tobdk"]
+
+[node name="Tribullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values", "animated_sprite")]
+script = ExtResource("1_54b28")
+hitter = NodePath("BulletHitter")
+move_values = NodePath("StraightMover/MovementValues")
+animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="BulletHitter" parent="." instance=ExtResource("2_pkkbm")]
+
+[node name="StraightMover" type="Node2D" parent="." node_paths=PackedStringArray("move_values")]
+script = ExtResource("3_yj8tr")
+move_values = NodePath("MovementValues")
+
+[node name="MovementValues" type="Node2D" parent="StraightMover"]
+script = ExtResource("4_tobdk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -6
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_yj8tr")
+
+[node name="BulletSplitter" type="Node2D" parent="." node_paths=PackedStringArray("hitter", "gun", "move_values")]
+script = ExtResource("6_tobdk")
+hitter = NodePath("../BulletHitter")
+gun = NodePath("PlayerDefaultGun")
+move_values = NodePath("../StraightMover/MovementValues")
+
+[node name="PlayerDefaultGun" parent="BulletSplitter" instance=ExtResource("6_pkkbm")]
+cooldown = 0.0

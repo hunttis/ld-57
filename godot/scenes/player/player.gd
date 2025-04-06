@@ -4,6 +4,7 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var default_gun: Gun = $AnimatedSprite/PlayerDefaultGun
+@onready var trigun: Gun = $AnimatedSprite/PlayerTrigun
 @onready var hitbox: Area2D = $Area2D
 @onready var bullet_hitbox: Hittable = $Hittable
 @onready var collision_box: CollisionShape2D = $CollisionShape2D
@@ -58,7 +59,10 @@ func _process(delta):
 	if Input.is_action_pressed(("shoot")):
 		if last_direction == 0:
 			last_direction = 1
-		default_gun.shoot(Vector2(last_direction, 0))
+		if Global.unlocked_upgrades.has(Global.UPGRADES.TRIGUN):
+			trigun.shoot(Vector2(last_direction,0))
+		else:
+			default_gun.shoot(Vector2(last_direction, 0))
 		sprite.play("move")
 		
 	damage_cooldown -= delta

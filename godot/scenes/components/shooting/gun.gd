@@ -10,6 +10,8 @@ var can_shoot_time_msec: int = 0
 @export var bullet_speed: float
 @export var bullet_acceleration: float
 @export var bullet_can_go_negative: bool
+@export var bullet_has_duration: bool = false
+@export var bullet_duration: float = 0
 
 @export var bullet_damage: float
 @export var bullet_hit_count: int
@@ -30,5 +32,6 @@ func shoot(direction: Vector2):
 			node.shoot(
 				team, direction, bullet_damage,
 				bullet_hit_count, bullet_infinite_hits,
-				bullet_speed, bullet_acceleration, bullet_can_go_negative
+				bullet_speed, bullet_acceleration, bullet_can_go_negative,
+				bullet_has_duration, bullet_duration
 			)
