@@ -29,10 +29,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgf15"]
 radius = 17.0
 
-[node name="EnemyBanshee" type="Node2D" groups=["Enemy"]]
+[node name="EnemyBanshee" type="Node2D"]
 
 [node name="FloatingEnemy" parent="." instance=ExtResource("1_5yvvy")]
-collision_mask = 5
 slowness = 2
 
 [node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]

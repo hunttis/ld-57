@@ -29,7 +29,7 @@ func _on_enemy_death(coords: Vector2):
 
 func _on_nondamaging_hit(coords: Vector2):
 	var nondamaging_hit_effect = nondamaging_hit_scene.instantiate()
-	_add_to_scene(nondamaging_hit_scene, coords)
+	_add_to_scene(nondamaging_hit_effect, coords)
 	
 func _on_player_hit(coords: Vector2):
 	var player_hit_effect = player_hit_scene.instantiate()

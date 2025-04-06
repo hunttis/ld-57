@@ -28,7 +28,7 @@ func _on_health_changed(health: int) -> void:
 
 func _on_hit(body: Area2D):
 	if body.get_parent().is_in_group("Enemy"):
-		health_component.take_damage((body as Enemy).damage)
+		health_component.take_damage((body.get_parent() as Enemy).damage)
 		return
 
 func _on_death():
