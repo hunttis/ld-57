@@ -13,6 +13,10 @@ var hits = {}
 signal stopped()
 signal hit_something()
 
+func _ready():
+	body_entered.connect(_on_collision)
+	area_entered.connect(_on_collision)
+
 func _process(delta):
 	if !has_duration:
 		return
@@ -20,7 +24,7 @@ func _process(delta):
 	if duration <= 0:
 		stopped.emit()
 
-func _on_body_entered(body: Node2D):
+func _on_collision(body: Node2D):
 	if body is not Hittable:
 		stopped.emit()
 		Global.create_nondamaging_hit_fx.emit()
