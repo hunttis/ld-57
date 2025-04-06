@@ -7,6 +7,15 @@ var enemy_hit_scene = preload("res://scenes/particle_fx/EnemyHit.tscn")
 var player_hit_scene = preload("res://scenes/particle_fx/PlayerHit.tscn")
 var enemy_death_scene = preload("res://scenes/particle_fx/EnemyDeath.tscn")
 
+@onready var bathit_sound = $BatHitSound
+@onready var bossgrowl_sound = $BossGrowlSound
+@onready var bossdeath_sound = $BossDeathSound
+@onready var enemyhit_sound = $EnemyHitSound
+@onready var gameover_sound = $GameOverSound
+@onready var levelclear_sound = $LevelClearSound
+@onready var movement_sound = $MovementSound
+@onready var shooting_sound = $ShootingSound
+
 var game_scene: Node2D
 
 func _ready() -> void:
@@ -18,6 +27,11 @@ func _ready() -> void:
 	Global.create_player_hit_fx.connect(_on_player_hit)
 	Global.create_enemy_hit_fx.connect(_on_enemy_hit)
 	Global.create_level_complete_fx.connect(_on_level_complete)
+	Global.create_game_over_fx.connect(_on_game_over)
+	Global.create_shooting_fx.connect(_on_shooting)
+	Global.create_boss_growl_fx.connect(_on_boss_growl)
+	Global.create_movement_fx.connect(_on_movement)
+	
 	
 func _on_bullet_hit(coords: Vector2):
 	var bullet_hit_effect = bullet_hit_scene.instantiate()
@@ -26,6 +40,7 @@ func _on_bullet_hit(coords: Vector2):
 func _on_enemy_death(coords: Vector2):
 	var enemy_death_effect = enemy_death_scene.instantiate()
 	_add_to_scene(enemy_death_effect, coords)
+	enemyhit_sound.play()
 
 func _on_nondamaging_hit(coords: Vector2):
 	var nondamaging_hit_effect = nondamaging_hit_scene.instantiate()
@@ -34,15 +49,33 @@ func _on_nondamaging_hit(coords: Vector2):
 func _on_player_hit(coords: Vector2):
 	var player_hit_effect = player_hit_scene.instantiate()
 	_add_to_scene(player_hit_effect, coords)
+	bathit_sound.play()
 
 func _on_enemy_hit(coords: Vector2):
 	var enemy_hit_effect = enemy_hit_scene.instantiate()
 	_add_to_scene(enemy_hit_effect, coords)
+	enemyhit_sound.play()
 
 func _on_level_complete(coords: Vector2):
 	var level_complete_effect = level_complete_scene.instantiate()
 	_add_to_scene(level_complete_effect, coords)
+	levelclear_sound.play()
+	
+func _on_game_over(coords: Vector2):
+	gameover_sound.play()
+	
+func _on_shooting(coords: Vector2):
+	shooting_sound.play()
+	
+func _on_boss_growl(coords: Vector2):
+	bossgrowl_sound.play()
+	
+func _on_movement(coords: Vector2):
+	movement_sound.play()
+	
 
-func _add_to_scene(fx, coords):
+
+func _add_to_scene(fx: GPUParticles2D, coords):
 	game_scene.add_child(fx)
 	fx.position = coords
+	fx.z_index = 100

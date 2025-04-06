@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://p4cv87ey2twb"
+path="res://.godot/imported/Bat hit2.wav-2f799550b5aa4d1b6eaede2a780bce46.sample"
+
+[deps]
+
+source_file="res://sounds/Bat hit/Bat hit2.wav"
+dest_files=["res://.godot/imported/Bat hit2.wav-2f799550b5aa4d1b6eaede2a780bce46.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

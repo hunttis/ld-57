@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=38 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://775s2w2dy5xy" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -10,6 +10,65 @@
 [ext_resource type="Script" uid="uid://dtkvhkv2onuwd" path="res://scenes/health.gd" id="7_vus8m"]
 [ext_resource type="PackedScene" uid="uid://ei2w5rhit0yn" path="res://scenes/components/health.tscn" id="8_1sh3m"]
 [ext_resource type="Script" uid="uid://bkuq0o44c2bmp" path="res://scenes/enemy_count.gd" id="9_etwux"]
+[ext_resource type="AudioStream" uid="uid://bw8xoxegs4sjd" path="res://sounds/Bat hit/Bat hit1.wav" id="11_pxehq"]
+[ext_resource type="AudioStream" uid="uid://p4cv87ey2twb" path="res://sounds/Bat hit/Bat hit2.wav" id="12_4d8mm"]
+[ext_resource type="AudioStream" uid="uid://fusjgf0j514" path="res://sounds/Bat hit/Bat hit3.wav" id="13_th7mp"]
+[ext_resource type="AudioStream" uid="uid://ckanivp6fi2j6" path="res://sounds/Bat hit/Bat hit4.wav" id="14_q7kwb"]
+[ext_resource type="AudioStream" uid="uid://w2otcajupal4" path="res://sounds/Bat hit/Bat hit5.wav" id="15_o7ls4"]
+[ext_resource type="AudioStream" uid="uid://4oa4cxtr5xht" path="res://sounds/Boss dies/Boss3.wav" id="16_bmd0x"]
+[ext_resource type="AudioStream" uid="uid://bogt0b36653hb" path="res://sounds/Enemy hit/Enemy hit1.wav" id="17_xo32w"]
+[ext_resource type="AudioStream" uid="uid://b8waitxk8731m" path="res://sounds/Enemy hit/Enemy hit2.wav" id="18_bcpdc"]
+[ext_resource type="AudioStream" uid="uid://d0tvcwunowupo" path="res://sounds/Enemy hit/Enemy hit3.wav" id="19_bpltm"]
+[ext_resource type="AudioStream" uid="uid://c8hg6tct24y1x" path="res://sounds/Enemy hit/Enemy hit4.wav" id="20_telmm"]
+[ext_resource type="AudioStream" uid="uid://cyek436eyyh2m" path="res://sounds/Enemy hit/Enemy hit5.wav" id="21_rv58i"]
+[ext_resource type="AudioStream" uid="uid://itxec76em33" path="res://sounds/Game over/Batdies1.wav" id="22_co0jq"]
+[ext_resource type="AudioStream" uid="uid://bfyuu3prmrbk5" path="res://sounds/Level clear/Level clear.wav" id="23_lbq3s"]
+[ext_resource type="AudioStream" uid="uid://dn406jlmldd77" path="res://sounds/Movement/Wings1.wav" id="24_2fmb7"]
+[ext_resource type="AudioStream" uid="uid://cc8vltiyq5041" path="res://sounds/Movement/Wings2.wav" id="25_x526a"]
+[ext_resource type="AudioStream" uid="uid://xbgkng8vca2a" path="res://sounds/Movement/Wings3.wav" id="26_q6vb2"]
+[ext_resource type="AudioStream" uid="uid://bgxlfcxn800at" path="res://sounds/Shooting/Fireball1.wav" id="27_104ws"]
+[ext_resource type="AudioStream" uid="uid://cpp8t3kjgc3i2" path="res://sounds/Shooting/Fireball2.wav" id="28_qjnmd"]
+[ext_resource type="AudioStream" uid="uid://g3hrkh5e7sip" path="res://sounds/Shooting/Fireball3.wav" id="29_i6xv3"]
+[ext_resource type="AudioStream" uid="uid://5ia1svh8f6dv" path="res://sounds/Shooting/Fireball4.wav" id="30_diauj"]
+[ext_resource type="AudioStream" uid="uid://c40n4ghyl30i7" path="res://sounds/Shooting/Fireball5.wav" id="31_c0xki"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hysgw"]
+streams_count = 5
+stream_0/stream = ExtResource("11_pxehq")
+stream_1/stream = ExtResource("12_4d8mm")
+stream_2/stream = ExtResource("13_th7mp")
+stream_3/stream = ExtResource("14_q7kwb")
+stream_4/stream = ExtResource("15_o7ls4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pmf6l"]
+streams_count = 5
+stream_0/stream = ExtResource("17_xo32w")
+stream_1/stream = ExtResource("18_bcpdc")
+stream_2/stream = ExtResource("19_bpltm")
+stream_3/stream = ExtResource("20_telmm")
+stream_4/stream = ExtResource("21_rv58i")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3egxp"]
+streams_count = 1
+stream_0/stream = ExtResource("22_co0jq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fpum5"]
+streams_count = 1
+stream_0/stream = ExtResource("23_lbq3s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fbq86"]
+streams_count = 3
+stream_0/stream = ExtResource("24_2fmb7")
+stream_1/stream = ExtResource("25_x526a")
+stream_2/stream = ExtResource("26_q6vb2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_er0xd"]
+streams_count = 5
+stream_0/stream = ExtResource("27_104ws")
+stream_1/stream = ExtResource("28_qjnmd")
+stream_2/stream = ExtResource("29_i6xv3")
+stream_3/stream = ExtResource("30_diauj")
+stream_4/stream = ExtResource("31_c0xki")
 
 [node name="IngameScene" type="Node2D" groups=["GameScene"]]
 script = ExtResource("1_objyc")
@@ -89,3 +148,26 @@ unique_name_in_owner = true
 
 [node name="FXManager" type="Node" parent="."]
 script = ExtResource("7_5jhce")
+
+[node name="BatHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_hysgw")
+
+[node name="BossGrowlSound" type="AudioStreamPlayer2D" parent="FXManager"]
+
+[node name="BossDeathSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = ExtResource("16_bmd0x")
+
+[node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_pmf6l")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_3egxp")
+
+[node name="LevelClearSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_fpum5")
+
+[node name="MovementSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_fbq86")
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="FXManager"]
+stream = SubResource("AudioStreamRandomizer_er0xd")

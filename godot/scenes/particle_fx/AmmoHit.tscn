@@ -23,6 +23,7 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_nbfe2")
 
 [node name="AmmoHit" type="GPUParticles2D"]
+z_index = 1000
 position = Vector2(120, 93)
 emitting = false
 amount = 20
