@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh66kdxmc67r1"]
+[gd_scene load_steps=9 format=3 uid="uid://bh66kdxmc67r1"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_ftfob"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_ugcn1"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://c6hyw86ag4xr1" path="res://scenes/terrain/level_3_terrain.tscn" id="3_ftfob"]
 [ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="4_ftfob"]
@@ -10,6 +11,13 @@
 
 [node name="Level3" type="Node"]
 script = ExtResource("1_fmg3e")
+
+[node name="FadeOverlay" parent="." instance=ExtResource("2_ugcn1")]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = 49.0
+offset_right = 49.0
 
 [node name="Player" parent="." instance=ExtResource("2_ftfob")]
 position = Vector2(287, 185)

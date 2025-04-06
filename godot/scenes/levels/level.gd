@@ -3,9 +3,12 @@ extends Node
 @onready var camera: Camera2D = $Camera2D
 @onready var terrain: TileMapLayer  = $TerrainScene/Terrain
 @onready var player := $Player
+@onready var fade_overlay := %FadeOverlay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if fade_overlay:
+		fade_overlay.show()
 	camera.limit_right = terrain.get_used_rect().size.x * 32
 	player.limit_right = terrain.get_used_rect().size.x * 32
 	camera.reset_smoothing()
@@ -20,3 +23,7 @@ func _input(event) -> void:
 	if event.is_action_pressed("debug1"):
 		player.hide()
 		Global.level_cleared.emit(player.position)
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if fade_overlay:
+		fade_overlay.fade_in()

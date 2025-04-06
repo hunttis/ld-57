@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://byvwg1errefsj"]
+[gd_scene load_steps=9 format=3 uid="uid://byvwg1errefsj"]
 
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_ibugp"]
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_qpwj6"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_ibugp"]
@@ -10,6 +11,29 @@
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_l37oo")
+
+[node name="FadeOverlay" parent="." instance=ExtResource("1_ibugp")]
+unique_name_in_owner = true
+z_index = 10
+offset_left = 84.0
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = -1.0
+fade_in_duration = 0.6
+auto_fade_in = false
+
+[node name="CenterContainer" type="CenterContainer" parent="FadeOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FadeOverlay/CenterContainer"]
+layout_mode = 2
+text = "As you climb closer to Earth you feel new powers rising.
+Try using Q while moving"
 
 [node name="Player" parent="." instance=ExtResource("2_qpwj6")]
 modulate = Color(0.776033, 0, 0.24291, 1)

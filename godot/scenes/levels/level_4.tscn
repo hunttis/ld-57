@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgycm3eb63odu"]
+[gd_scene load_steps=8 format=3 uid="uid://bgycm3eb63odu"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_5vn0v"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_ts8eg"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_um320"]
 [ext_resource type="PackedScene" uid="uid://dth33aduhvydj" path="res://scenes/terrain/level_4_terrain.tscn" id="4_rej77"]
@@ -10,9 +11,14 @@
 [node name="Level4" type="Node"]
 script = ExtResource("1_5vn0v")
 
+[node name="FadeOverlay" parent="." instance=ExtResource("2_5vn0v")]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+
 [node name="Player" parent="." instance=ExtResource("2_ts8eg")]
 modulate = Color(0.776033, 0, 0.24291, 1)
-position = Vector2(98, 261)
+position = Vector2(319, 190)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -32,6 +38,6 @@ texture = ExtResource("5_4wsov")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("6_qvnao")]
-position = Vector2(98, 261)
+position = Vector2(319, 190)
 limit_bottom = 360
 limit_smoothed = true
