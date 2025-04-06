@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=11 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://775s2w2dy5xy" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c6si5x6kuqyyu" path="res://scenes/fx_manager.gd" id="7_5jhce"]
 [ext_resource type="Script" uid="uid://dtkvhkv2onuwd" path="res://scenes/health.gd" id="7_vus8m"]
 [ext_resource type="PackedScene" uid="uid://ei2w5rhit0yn" path="res://scenes/components/health.tscn" id="8_1sh3m"]
+[ext_resource type="Script" uid="uid://bkuq0o44c2bmp" path="res://scenes/enemy_count.gd" id="9_etwux"]
 
 [node name="IngameScene" type="Node2D" groups=["GameScene"]]
 script = ExtResource("1_objyc")
@@ -68,6 +69,20 @@ health_indicator = ExtResource("8_1sh3m")
 [node name="Label" type="Label" parent="UI/Health"]
 layout_mode = 2
 text = "Health"
+
+[node name="EnemyCount" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -36.0
+offset_right = 96.0
+offset_bottom = -13.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Enemy Count"
+script = ExtResource("9_etwux")
 
 [node name="LevelContainer" type="Node" parent="."]
 unique_name_in_owner = true

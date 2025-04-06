@@ -7,6 +7,7 @@ extends Node2D
 @onready var game_over_screen = %GameOver
 @onready var level_clear = %LevelCleared
 @onready var health_indicator = %Health
+@onready var enemy_count = %EnemyCount
 
 @onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level_1.tscn"),
@@ -59,6 +60,8 @@ func _on_level_cleared(coords: Vector2):
 
 	current_level += 1
 	if current_level > max_levels:
+		enemy_count.hide()
+		health_indicator.hide()
 		level_clear.visible = false
 		victory_screen.visible = true
 		remove_level()
@@ -71,6 +74,8 @@ func _on_level_cleared(coords: Vector2):
 func _on_game_over():
 	get_viewport().set_input_as_handled()
 	remove_level()
+	enemy_count.hide()
+	health_indicator.hide()
 	game_over_screen.visible = true
 
 func _on_game_restart():
