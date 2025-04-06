@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv6qo4mcl16of"]
+
+[ext_resource type="Texture2D" uid="uid://lxtx5pna6ahh" path="res://images/heart.png" id="1_0wk2y"]
+
+[node name="BossHP" type="CenterContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Boss"
+
+[node name="Hp" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_0wk2y")
+expand_mode = 1
+stretch_mode = 5

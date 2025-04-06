@@ -8,6 +8,7 @@ extends Node2D
 @onready var level_clear = %LevelCleared
 @onready var health_indicator = %Health
 @onready var enemy_count = %EnemyCount
+@onready var bossHP = %BossHP
 
 @onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level_1.tscn"),
@@ -26,6 +27,7 @@ func _ready() -> void:
 	Global.game_restart.connect(_on_game_restart)
 	Global.game_over.connect(_on_game_over)
 	Global.player_health_change.connect(_on_player_health_change)
+	Global.boss_health_change.connect(_on_boss_health_change)
 
 	if SaveGame.has_save():
 		SaveGame.load_game(get_tree())
@@ -52,8 +54,9 @@ func next_level() -> void:
 	level_container.add_child(new_level)
 
 func _on_level_cleared(coords: Vector2):
-
 	level_clear.visible = true
+	if bossHP.visible:
+		bossHP.hide()
 	level_container.process_mode = Node.PROCESS_MODE_DISABLED
 	Global.create_level_complete_fx.emit(coords)
 	await get_tree().create_timer(2.0).timeout
@@ -83,3 +86,9 @@ func _on_game_restart():
 
 func _on_player_health_change(health:int) -> void:
 	health_indicator.set_health(health)
+
+func _on_boss_health_change(boss_name: String, hp: int):
+	if not bossHP.visible:
+		bossHP.show()
+
+	bossHP.set_display(boss_name,hp)
