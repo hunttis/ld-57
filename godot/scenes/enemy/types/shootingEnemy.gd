@@ -21,3 +21,8 @@ func get_player_pos():
 	if player == null:
 		return Vector2.ZERO
 	return player.global_position
+
+func player_in_range():
+	var player_position = get_player_pos()
+	var distance_to_player = (player_position - global_position).length()
+	return distance_to_player <= activation_distnace

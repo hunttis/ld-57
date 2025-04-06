@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://cekn2rrp0ho5j"]
+
+[ext_resource type="Script" uid="uid://y6prtweiw5rp" path="res://scenes/enemy/enemy_crawler.gd" id="1_rpdcv"]
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="1_tyi3n"]
+[ext_resource type="SpriteFrames" uid="uid://ddrvi1apva7um" path="res://images/crawler_sprite.tres" id="2_4bdib"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_4s26s"]
+[ext_resource type="Script" uid="uid://b5o8su155tvo4" path="res://scenes/enemy/types/path_follower_enemy.gd" id="4_8bgnx"]
+[ext_resource type="Script" uid="uid://7x2o6ypdh42" path="res://scenes/enemy/shoot_up.gd" id="6_mxu86"]
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="7_mxu86"]
+[ext_resource type="PackedScene" uid="uid://hv31xo8w43i8" path="res://scenes/components/shooting/bullets/CrawlerSpitBullet.tscn" id="8_mxu86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bgnx"]
+size = Vector2(30, 17)
+
+[node name="CrawlerEnemy" type="Node2D"]
+script = ExtResource("1_rpdcv")
+
+[node name="EnemyWorm" type="Node2D" parent="."]
+script = ExtResource("1_tyi3n")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="EnemyWorm"]
+sprite_frames = ExtResource("2_4bdib")
+
+[node name="Hittable" type="Area2D" parent="EnemyWorm"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_4s26s")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyWorm/Hittable"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_8bgnx")
+
+[node name="PathFollowerEnemy" type="Node" parent="EnemyWorm"]
+script = ExtResource("4_8bgnx")
+metadata/_custom_type_script = "uid://b5o8su155tvo4"
+
+[node name="ShootingUpEnemy" type="Node2D" parent="EnemyWorm"]
+script = ExtResource("6_mxu86")
+metadata/_custom_type_script = "uid://d28hnem0o5mog"
+
+[node name="Gun" type="Node2D" parent="EnemyWorm/ShootingUpEnemy" node_paths=PackedStringArray("cooldown_timer")]
+script = ExtResource("7_mxu86")
+cooldown = 0.75
+team = 2
+bullet_scene = ExtResource("8_mxu86")
+bullet_speed = 150.0
+cooldown_timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://bf2wuul71apu0"
+
+[node name="Timer" type="Timer" parent="EnemyWorm/ShootingUpEnemy/Gun"]
+one_shot = true

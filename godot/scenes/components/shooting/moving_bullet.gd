@@ -29,11 +29,10 @@ func shoot(
 	move_values.root = self
 	
 	if animated_sprite != null:
-		animated_sprite.play("default")
-		if direction.x != 0:
-			animated_sprite.scale.x *= sign(direction.x)
-		if direction.y != 0:
-			animated_sprite.rotate(PI/2.0 * sign(direction.y))
+		var angle = atan2(direction.y, direction.x)
+		animated_sprite.rotation = angle
+
+	animated_sprite.play("default")
 	
 func stop(hit_anything: bool):
 	queue_free()
