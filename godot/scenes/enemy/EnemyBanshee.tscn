@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cpu7msijtx25s" path="res://images/banshee.png" id="2_bgf15"]
 [ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="3_bgf15"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bgf15"]
-radius = 17.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oacdk"]
 atlas = ExtResource("2_bgf15")
 region = Rect2(32, 0, 32, 32)
@@ -29,11 +26,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgf15"]
+radius = 17.0
+
 [node name="EnemyBanshee" type="Node2D" groups=["Enemy"]]
 
 [node name="FloatingEnemy" parent="." instance=ExtResource("1_5yvvy")]
 collision_mask = 5
 slowness = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
+sprite_frames = SubResource("SpriteFrames_hc0tx")
 
 [node name="Hittable" type="Area2D" parent="FloatingEnemy"]
 collision_layer = 2
@@ -44,6 +47,3 @@ metadata/_custom_type_script = "uid://b8k6ibtcwlme"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingEnemy/Hittable"]
 shape = SubResource("CircleShape2D_bgf15")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
-sprite_frames = SubResource("SpriteFrames_hc0tx")

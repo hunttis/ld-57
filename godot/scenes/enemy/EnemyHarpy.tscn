@@ -29,9 +29,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv6uu"]
 radius = 18.0278
 
-[node name="EnemyHarpy" type="Node2D"]
+[node name="EnemyHarpy" type="Node2D" groups=["Enemy"]]
 
-[node name="FloatingEnemy" parent="." groups=["Enemy"] instance=ExtResource("1_jsmja")]
+[node name="FloatingEnemy" parent="." instance=ExtResource("1_jsmja")]
 slowness = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="FloatingEnemy"]
