@@ -32,7 +32,7 @@ func _take_damage(incoming_damage: int):
 	hitpoints -= incoming_damage
 	if hitpoints <= 0:
 		Global.create_enemy_death_fx.emit(global_position)
-		queue_free()
+		get_parent().queue_free()
 		return
 
 	Global.create_enemy_hit_fx.emit(global_position)
