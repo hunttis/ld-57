@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctjkwcao83u3g"]
 
-[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="1_co6ne"]
+[ext_resource type="Script" uid="uid://cr6qjrhhgqrym" path="res://scenes/enemy/enemy_eye.gd" id="1_co6ne"]
 [ext_resource type="PackedScene" uid="uid://brb3gk32hwsqa" path="res://scenes/enemy/types/ShootingEnemy.tscn" id="1_f2mmu"]
 [ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="2_1raf2"]
 [ext_resource type="Texture2D" uid="uid://lew0f5p4y7xd" path="res://images/red_eye.png" id="3_1raf2"]
@@ -25,10 +25,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmb8f"]
 radius = 17.0
 
-[node name="EnemyEye" type="Node2D" groups=["Enemy"]]
+[node name="EnemyEye" type="Node2D"]
 script = ExtResource("1_co6ne")
 
 [node name="ShootingEnemy" parent="." instance=ExtResource("1_f2mmu")]
+visible = false
 
 [node name="Gun" type="Node2D" parent="ShootingEnemy" node_paths=PackedStringArray("cooldown_timer")]
 script = ExtResource("2_1raf2")
