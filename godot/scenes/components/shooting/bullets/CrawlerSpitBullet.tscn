@@ -1,13 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://hv31xo8w43i8"]
+[gd_scene load_steps=11 format=3 uid="uid://hv31xo8w43i8"]
 
 [ext_resource type="Script" uid="uid://b7er026mjllw8" path="res://scenes/components/shooting/moving_bullet.gd" id="1_0qigd"]
 [ext_resource type="Script" uid="uid://c1ixa2ewmgywe" path="res://scenes/components/shooting/bullet_hitter.gd" id="2_aki2j"]
-[ext_resource type="SpriteFrames" uid="uid://omarp61vxec3" path="res://images/fireball_sprite.tres" id="3_vh41d"]
+[ext_resource type="Texture2D" uid="uid://b2wqjxhxb368y" path="res://images/fireball.png" id="3_vh41d"]
 [ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="4_aki2j"]
 [ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="5_vh41d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fu3in"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h01cw"]
+atlas = ExtResource("3_vh41d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdagp"]
+atlas = ExtResource("3_vh41d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufu5t"]
+atlas = ExtResource("3_vh41d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fu3in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h01cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdagp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufu5t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="CrawlerSpitBullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values", "animated_sprite")]
 script = ExtResource("1_0qigd")
@@ -29,7 +58,7 @@ shape = SubResource("CircleShape2D_fu3in")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
-sprite_frames = ExtResource("3_vh41d")
+sprite_frames = SubResource("SpriteFrames_fu3in")
 
 [node name="BulletMovementValues" type="Node2D" parent="."]
 script = ExtResource("4_aki2j")

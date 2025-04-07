@@ -17,8 +17,13 @@ var can_shoot_time_msec: int = 0
 @export var bullet_hit_count: int
 @export var bullet_infinite_hits: bool
 
-@export var cooldown_timer: Timer
+var cooldown_timer: Timer
 
+func _ready():
+	cooldown_timer = Timer.new()
+	add_child(cooldown_timer)
+	cooldown_timer.wait_time = cooldown
+	cooldown_timer.one_shot = true
 
 func shoot(direction: Vector2):
 	print("gun")

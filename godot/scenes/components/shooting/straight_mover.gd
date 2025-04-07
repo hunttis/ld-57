@@ -1,4 +1,5 @@
 extends Node2D
+class_name StraightMover
 
 @export var move_values: BulletMovementValues
 var root: Node2D

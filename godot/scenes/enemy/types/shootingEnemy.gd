@@ -1,12 +1,17 @@
 extends Node2D
 class_name ShootingEnemy
 
-@onready var cooldown: Timer = $Cooldown
+var cooldown: Timer
 @onready var gun: Gun = $Gun
 
 @export var activation_distnace: int = 400
 
 var team = Global.TEAM.Enemy
+
+func _ready():
+	cooldown = Timer.new()
+	add_child(cooldown)
+	cooldown.one_shot = true
 
 func _process(_delta: float) -> void:
 	var player_position = get_player_pos()
