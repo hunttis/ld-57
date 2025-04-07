@@ -1,24 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgycm3eb63odu"]
+[gd_scene load_steps=9 format=3 uid="uid://byvwg1errefsj"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_ts8eg"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_um320"]
-[ext_resource type="PackedScene" uid="uid://dth33aduhvydj" path="res://scenes/terrain/level_4_terrain.tscn" id="4_rej77"]
+[ext_resource type="PackedScene" uid="uid://iykhess2rnmk" path="res://scenes/terrain/level_4_terrain.tscn" id="4_rej77"]
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="6_qvnao"]
+[ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="7_ts8eg"]
 
 [node name="Level4" type="Node"]
 script = ExtResource("1_5vn0v")
 
-[node name="FadeOverlay" parent="." instance=ExtResource("2_5vn0v")]
-unique_name_in_owner = true
-visible = false
-z_index = 10
-
 [node name="Player" parent="." instance=ExtResource("2_ts8eg")]
 modulate = Color(0.776033, 0, 0.24291, 1)
-position = Vector2(319, 190)
+position = Vector2(263, 63)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -31,13 +27,64 @@ script = ExtResource("3_um320")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color(0.2241, 0.109295, 4.81308e-08, 1)
+modulate = Color(0.228176, 0.0121725, 0.291187, 1)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_4wsov")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("6_qvnao")]
-position = Vector2(319, 190)
+position = Vector2(263, 63)
 limit_bottom = 360
 limit_smoothed = true
+
+[node name="EnemyBanshee" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(96, 267)
+
+[node name="EnemyBanshee2" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(720, 73)
+
+[node name="EnemyBanshee3" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(1504, 250)
+
+[node name="EnemyBanshee4" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(941, 93)
+
+[node name="EnemyBanshee5" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(1494, 44)
+
+[node name="EnemyBanshee6" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(1493, 124)
+
+[node name="EnemyBanshee7" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(1782, 182)
+
+[node name="EnemyBanshee8" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(2334, 268)
+
+[node name="EnemyBanshee9" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(2883, 248)
+
+[node name="EnemyBanshee10" parent="." instance=ExtResource("7_ts8eg")]
+position = Vector2(2876, 71)
+
+[node name="FadeOverlay" parent="." instance=ExtResource("2_5vn0v")]
+unique_name_in_owner = true
+z_index = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="FadeOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FadeOverlay/CenterContainer"]
+layout_mode = 2
+text = "As you climb closer to Earth you feel new powers rising.
+Try using Q while moving"
