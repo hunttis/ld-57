@@ -92,8 +92,11 @@ func _on_game_over():
 	game_over_screen.visible = true
 
 func _on_game_restart():
-	Global.unlocked_upgrades = {}
-	get_tree().reload_current_scene()
+	var new_level = levels[current_level].instantiate()
+	level_container.add_child(new_level)
+	game_over_screen.hide()
+	enemy_count.show()
+	health_indicator.show()
 
 func _on_player_health_change(health:int) -> void:
 	health_indicator.set_health(health)

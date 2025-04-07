@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://chclxby2dol7b"]
+[gd_scene format=3 uid="uid://chclxby2dol7b"]
 
 [node name="GameOver" type="CenterContainer"]
 anchors_preset = 15
@@ -18,10 +18,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Game over"
+theme_override_colors/font_color = Color(0.54902, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.800491, 0.800491, 0.800491, 1)
+text = "You died"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Press Enter to restart"
+text = "Press Enter to try again"
 horizontal_alignment = 1
