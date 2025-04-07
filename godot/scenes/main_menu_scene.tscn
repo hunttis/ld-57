@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
 [ext_resource type="Texture2D" uid="uid://bg6xf8oibcfxp" path="res://images/background4.png" id="4_wbyn4"]
-[ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
+[ext_resource type="AudioStream" uid="uid://d2kflfa6b80af" path="res://music/Menu.mp3" id="7_ahc2o"]
 [ext_resource type="PackedScene" uid="uid://cgjpircqdt210" path="res://scenes/particle_fx/AmmoHit.tscn" id="8_ahc2o"]
 [ext_resource type="PackedScene" uid="uid://brj3glnht1wds" path="res://scenes/particle_fx/BatLeave.tscn" id="9_3xocm"]
 [ext_resource type="PackedScene" uid="uid://cwwmslgjs7fnn" path="res://scenes/particle_fx/EnemyDeath.tscn" id="10_btctn"]
@@ -93,7 +93,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_drnm6")
+stream = ExtResource("7_ahc2o")
 autoplay = true
 bus = &"Music"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byvwg1errefsj"]
+[gd_scene load_steps=10 format=3 uid="uid://byvwg1errefsj"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_5vn0v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="6_qvnao"]
 [ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="7_ts8eg"]
+[ext_resource type="AudioStream" uid="uid://cp31e8e4u5ygd" path="res://music/4. Heresy.mp3" id="9_um320"]
 
 [node name="Level4" type="Node"]
 script = ExtResource("1_5vn0v")
@@ -86,3 +87,8 @@ position = Vector2(2883, 248)
 
 [node name="EnemyBanshee10" parent="." instance=ExtResource("7_ts8eg")]
 position = Vector2(2876, 71)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_um320")
+autoplay = true
+bus = &"Music"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2j5kjjvwm0ld"]
+[gd_scene load_steps=10 format=3 uid="uid://c2j5kjjvwm0ld"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_5wshb"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_7x7cx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="5_b6i88"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="6_kydov"]
 [ext_resource type="PackedScene" uid="uid://c52aoi17lppeo" path="res://scenes/boss/greed_boss.tscn" id="7_7x7cx"]
+[ext_resource type="AudioStream" uid="uid://i4rwq1oj7da" path="res://music/6. Greed.mp3" id="9_e18e5"]
 
 [node name="Level6" type="Node"]
 script = ExtResource("1_5wshb")
@@ -48,3 +49,8 @@ limit_smoothed = true
 
 [node name="GreedBoss" parent="." instance=ExtResource("7_7x7cx")]
 position = Vector2(547, 170)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_e18e5")
+autoplay = true
+bus = &"Music"

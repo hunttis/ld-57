@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byvwg1errefsj"]
+[gd_scene load_steps=21 format=3 uid="uid://byvwg1errefsj"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_qpwj6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="7_8qukl"]
 [ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="8_3p04p"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="9_3p04p"]
+[ext_resource type="AudioStream" uid="uid://k01ur5qxcjq8" path="res://music/2. Fraud.mp3" id="11_nt80m"]
 
 [sub_resource type="Curve2D" id="Curve2D_8qukl"]
 _data = {
@@ -19,13 +20,13 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_qsp8v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -71, -7.62939e-06, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 1)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_3p04p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -75, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -75, 0)
 }
 point_count = 2
 
@@ -49,13 +50,13 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_r88tb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -102, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 103, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_1yj8c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -74, 0)
 }
 point_count = 2
 
@@ -115,15 +116,14 @@ position = Vector2(540, 315)
 curve = SubResource("Curve2D_8qukl")
 
 [node name="CrawlerEnemy2" parent="." instance=ExtResource("8_3p04p")]
-position = Vector2(1551, 125)
+position = Vector2(1551, 116)
 scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy2"]
-position = Vector2(70, 6.11959e-06)
 curve = SubResource("Curve2D_qsp8v")
 
 [node name="CrawlerEnemy3" parent="." instance=ExtResource("8_3p04p")]
-position = Vector2(1615, 189)
+position = Vector2(1615, 181)
 scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy3"]
@@ -148,22 +148,21 @@ position = Vector2(826, 173)
 curve = SubResource("Curve2D_tv7cl")
 
 [node name="CrawlerEnemy4" parent="." instance=ExtResource("8_3p04p")]
-position = Vector2(1938, 158)
+position = Vector2(1933, 148)
 scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy4"]
-position = Vector2(101, 0)
 curve = SubResource("Curve2D_r88tb")
 
 [node name="CrawlerEnemy5" parent="." instance=ExtResource("8_3p04p")]
-position = Vector2(1968, 122)
+position = Vector2(1965, 116)
 scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy5"]
 curve = SubResource("Curve2D_1yj8c")
 
 [node name="CrawlerEnemy6" parent="." instance=ExtResource("8_3p04p")]
-position = Vector2(1808, 188)
+position = Vector2(1806, 181)
 scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy6"]
@@ -172,3 +171,8 @@ curve = SubResource("Curve2D_ndlae")
 
 [node name="EnemyEye2" parent="." instance=ExtResource("7_8qukl")]
 position = Vector2(2264, 225)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nt80m")
+autoplay = true
+bus = &"Music"
