@@ -38,6 +38,10 @@ point_count = 2
 [node name="Level7" type="Node" groups=["GameScene"]]
 script = ExtResource("1_u1w5x")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"
+
 [node name="FadeOverlay" parent="." instance=ExtResource("2_posk4")]
 unique_name_in_owner = true
 visible = false

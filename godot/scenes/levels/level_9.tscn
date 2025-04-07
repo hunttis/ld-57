@@ -11,6 +11,10 @@
 [node name="Level9" type="Node" groups=["GameScene"]]
 script = ExtResource("1_6nuwh")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Sound"
+
 [node name="FadeOverlay" parent="." instance=ExtResource("2_m2cpo")]
 unique_name_in_owner = true
 visible = false
