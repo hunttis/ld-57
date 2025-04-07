@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" path="res://scenes/components/health.tscn" id="8_1sh3m"]
 [ext_resource type="Script" uid="uid://bkuq0o44c2bmp" path="res://scenes/enemy_count.gd" id="9_etwux"]
 [ext_resource type="PackedScene" uid="uid://dv6qo4mcl16of" path="res://scenes/components/boss_hp.tscn" id="10_bcpdc"]
-[ext_resource type="Script" path="res://scenes/components/boss_hp.gd" id="11_bpltm"]
+[ext_resource type="Script" uid="uid://xx6gck6qxbku" path="res://scenes/components/boss_hp.gd" id="11_bpltm"]
 [ext_resource type="AudioStream" uid="uid://bw8xoxegs4sjd" path="res://sounds/Bat hit/Bat hit1.wav" id="11_pxehq"]
 [ext_resource type="AudioStream" uid="uid://p4cv87ey2twb" path="res://sounds/Bat hit/Bat hit2.wav" id="12_4d8mm"]
 [ext_resource type="AudioStream" uid="uid://fusjgf0j514" path="res://sounds/Bat hit/Bat hit3.wav" id="13_th7mp"]
@@ -178,44 +178,53 @@ script = ExtResource("7_5jhce")
 stream = SubResource("AudioStreamRandomizer_hysgw")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="BossGrowlSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_telmm")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="BossDeathSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = ExtResource("16_bmd0x")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_pmf6l")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_3egxp")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="LevelClearSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_fpum5")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="MovementSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_fbq86")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="ShootingSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_er0xd")
 max_distance = 100000.0
 attenuation = 1e-05
+bus = &"Sound"
 
 [node name="GroundHitSound" type="AudioStreamPlayer2D" parent="FXManager"]
 stream = SubResource("AudioStreamRandomizer_rv58i")
 volume_db = -5.0
 max_distance = 10000.0
 attenuation = 1e-05
+bus = &"Sound"
