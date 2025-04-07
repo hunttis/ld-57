@@ -13,6 +13,7 @@ script = ExtResource("1_hldbq")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_mxx4w")]
 unique_name_in_owner = true
+visible = false
 z_index = 10
 offset_left = -8.0
 offset_top = -29.0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://byvwg1errefsj"]
+[gd_scene load_steps=20 format=3 uid="uid://byvwg1errefsj"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_qsp8v"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_ibugp"]
 [ext_resource type="PackedScene" uid="uid://dth33aduhvydj" path="res://scenes/terrain/level_2_terrain.tscn" id="3_qpwj6"]
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="4_qpwj6"]
@@ -66,6 +67,10 @@ point_count = 2
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_l37oo")
+
+[node name="FadeOverlay" parent="." instance=ExtResource("2_qsp8v")]
+visible = false
+z_index = 10
 
 [node name="TerrainScene" parent="." instance=ExtResource("3_qpwj6")]
 position = Vector2(88, -7)
