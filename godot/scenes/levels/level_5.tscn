@@ -26,6 +26,10 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_6xwso"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 1, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_5ke18"]
 _data = {
@@ -40,12 +44,28 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_0y7y4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_gruok"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 2, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l8eod"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_sfnul"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 1, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_h717f"]
 _data = {
