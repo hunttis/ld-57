@@ -26,7 +26,6 @@ func _ready():
 	cooldown_timer.one_shot = true
 
 func shoot(direction: Vector2):
-	print("gun")
 	if cooldown_timer.is_stopped():
 		print("stopped")
 		if cooldown > 0:
