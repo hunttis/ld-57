@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://b518wbnxakngs"]
+
+[ext_resource type="Script" uid="uid://btqfgy2dq6o8q" path="res://scenes/enemy/enemy_lust_pair.gd" id="1_26p6a"]
+[ext_resource type="Script" uid="uid://dnkhmn2lhjmxd" path="res://scenes/enemy/sprite.gd" id="2_jc3pr"]
+[ext_resource type="SpriteFrames" uid="uid://db7ypdkftjb7o" path="res://images/lust_f_frames.tres" id="3_mj0fo"]
+[ext_resource type="SpriteFrames" uid="uid://rq7711ushspt" path="res://images/lust_m_frames.tres" id="4_dnk51"]
+[ext_resource type="Script" uid="uid://b8k6ibtcwlme" path="res://scenes/components/shooting/hittable.gd" id="5_i6qcv"]
+[ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="6_jc3pr"]
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="7_dnk51"]
+[ext_resource type="PackedScene" uid="uid://bppn8obu8l6rs" path="res://scenes/components/shooting/bullets/HeartBullet.tscn" id="8_i6qcv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i43gj"]
+size = Vector2(43, 27)
+
+[node name="EnemyLustPair" type="Node2D"]
+script = ExtResource("6_jc3pr")
+metadata/_custom_type_script = "uid://d156vyr6ypobx"
+
+[node name="Sprite" type="Node2D" parent="."]
+script = ExtResource("2_jc3pr")
+
+[node name="F" type="AnimatedSprite2D" parent="Sprite"]
+position = Vector2(-5, 0)
+sprite_frames = ExtResource("3_mj0fo")
+frame_progress = 0.197043
+
+[node name="M" type="AnimatedSprite2D" parent="Sprite"]
+position = Vector2(7, 0)
+sprite_frames = ExtResource("4_dnk51")
+frame_progress = 0.00454989
+
+[node name="Hittable" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_i6qcv")
+team = 2
+metadata/_custom_type_script = "uid://b8k6ibtcwlme"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hittable"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_i43gj")
+
+[node name="EnemyLustPair" type="Node2D" parent="."]
+script = ExtResource("1_26p6a")
+main_cooldown = 2.0
+group_cooldown = 0.3
+metadata/_custom_type_script = "uid://d156vyr6ypobx"
+
+[node name="Gun" type="Node2D" parent="EnemyLustPair"]
+script = ExtResource("7_dnk51")
+cooldown = 0.0
+team = 2
+bullet_scene = ExtResource("8_i6qcv")
+bullet_speed = 250.0
+metadata/_custom_type_script = "uid://bf2wuul71apu0"

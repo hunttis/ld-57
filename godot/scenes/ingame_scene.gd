@@ -18,10 +18,11 @@ extends Node2D
 	preload("res://scenes/levels/level_5.tscn"),
 	preload("res://scenes/levels/level_6.tscn"),
 	preload("res://scenes/levels/level_7.tscn"),
+	preload("res://scenes/levels/level_8.tscn"),
 	preload("res://scenes/levels/level_9.tscn"),
 ]
 
-@onready var max_levels = len(levels) -1
+@onready var max_levels = len(levels) - 1
 
 var current_level = 0
 
@@ -51,7 +52,7 @@ func _save_game() -> void:
 	SaveGame.save_game(get_tree())
 
 func remove_level() -> void:
-	level_container.get_child(0).queue_free()	
+	level_container.get_child(0).queue_free()
 
 func next_level() -> void:
 	var new_level = levels[current_level].instantiate()
@@ -98,11 +99,11 @@ func _on_game_restart():
 	enemy_count.show()
 	health_indicator.show()
 
-func _on_player_health_change(health:int) -> void:
+func _on_player_health_change(health: int) -> void:
 	health_indicator.set_health(health)
 
 func _on_boss_health_change(boss_name: String, hp: int):
 	if not bossHP.visible:
 		bossHP.show()
 
-	bossHP.set_display(boss_name,hp)
+	bossHP.set_display(boss_name, hp)

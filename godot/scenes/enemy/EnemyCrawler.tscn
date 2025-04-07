@@ -32,14 +32,10 @@ shape = SubResource("RectangleShape2D_8bgnx")
 script = ExtResource("6_mxu86")
 metadata/_custom_type_script = "uid://d28hnem0o5mog"
 
-[node name="Gun" type="Node2D" parent="ShootingUpEnemy" node_paths=PackedStringArray("cooldown_timer")]
+[node name="Gun" type="Node2D" parent="ShootingUpEnemy"]
 script = ExtResource("7_mxu86")
 cooldown = 0.75
 team = 2
 bullet_scene = ExtResource("8_mxu86")
 bullet_speed = 150.0
-cooldown_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://bf2wuul71apu0"
-
-[node name="Timer" type="Timer" parent="ShootingUpEnemy/Gun"]
-one_shot = true

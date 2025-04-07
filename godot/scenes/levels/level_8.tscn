@@ -1,5 +1,4 @@
 [gd_scene load_steps=8 format=3 uid="uid://b20qgv6lfnvrs"]
-
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_xsrpe"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_0kxia"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="3_5umh1"]
@@ -7,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="4_v7ucw"]
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="6_kk2ik"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="7_6to6e"]
+[ext_resource type="PackedScene" uid="uid://b518wbnxakngs" path="res://scenes/enemy/EnemyLustPair.tscn" id="8_w2i51"]
+[ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="9_e7lui"]
 
 [node name="Level8" type="Node" groups=["GameScene"]]
 script = ExtResource("1_xsrpe")
@@ -24,7 +25,7 @@ offset_bottom = -34.0
 
 [node name="Player" parent="." instance=ExtResource("3_5umh1")]
 modulate = Color(0.776033, 0, 0.24291, 1)
-position = Vector2(291, 134)
+position = Vector2(74, 34)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -35,13 +36,103 @@ script = ExtResource("4_v7ucw")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color(0.359143, 0.196521, 0.433588, 1)
+modulate = Color(0.753614, 0.087468, 0.59127, 1)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_kk2ik")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("7_6to6e")]
-position = Vector2(291, 134)
+position = Vector2(74, 34)
 limit_bottom = 360
 limit_smoothed = true
+
+[node name="EnemyLustPair" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(53, 216)
+
+[node name="EnemyLustPair2" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(55, 313)
+
+[node name="EnemyLustPair3" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(338, 254)
+
+[node name="EnemyLustPair4" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(243, 28)
+
+[node name="EnemyLustPair5" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(602, 106)
+
+[node name="EnemyLustPair6" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(807, 95)
+
+[node name="EnemyLustPair7" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1043, 155)
+
+[node name="EnemyLustPair8" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1232, 250)
+
+[node name="EnemyLustPair9" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1519, 283)
+
+[node name="EnemyLustPair10" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1696, 92)
+
+[node name="EnemyLustPair11" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1670, 192)
+
+[node name="EnemyLustPair12" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1729, 276)
+
+[node name="EnemyLustPair13" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1868, 280)
+
+[node name="EnemyLustPair14" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1930, 194)
+
+[node name="EnemyLustPair15" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(1891, 95)
+
+[node name="EnemyLustPair16" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2134, 313)
+
+[node name="EnemyLustPair17" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2173, 313)
+
+[node name="EnemyLustPair18" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2213, 313)
+
+[node name="EnemyLustPair19" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2252, 313)
+
+[node name="EnemyLustPair20" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2292, 313)
+
+[node name="EnemyLustPair21" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2332, 314)
+
+[node name="EnemyLustPair22" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2374, 314)
+
+[node name="EnemyLustPair23" parent="." instance=ExtResource("8_w2i51")]
+position = Vector2(2721, 210)
+
+[node name="EnemyEye" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2584, 62)
+
+[node name="EnemyEye3" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2725, 47)
+
+[node name="EnemyEye5" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2826, 76)
+
+[node name="EnemyEye7" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2838, 182)
+
+[node name="EnemyEye8" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2841, 298)
+
+[node name="EnemyEye9" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2732, 297)
+
+[node name="EnemyEye10" parent="." instance=ExtResource("9_e7lui")]
+position = Vector2(2613, 295)

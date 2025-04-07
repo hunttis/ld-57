@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bppn8obu8l6rs"]
+
+[ext_resource type="Script" uid="uid://c1ixa2ewmgywe" path="res://scenes/components/shooting/bullet_hitter.gd" id="1_niv18"]
+[ext_resource type="Script" uid="uid://b7er026mjllw8" path="res://scenes/components/shooting/moving_bullet.gd" id="1_r01js"]
+[ext_resource type="Texture2D" uid="uid://lxtx5pna6ahh" path="res://images/heart.png" id="2_r01js"]
+[ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="3_364h3"]
+[ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="4_4jpnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khqsf"]
+atlas = ExtResource("2_r01js")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knn42"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khqsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbxd7"]
+radius = 12.0
+
+[node name="HeartBullet" type="Node2D" node_paths=PackedStringArray("hitter", "move_values", "animated_sprite")]
+script = ExtResource("1_r01js")
+hitter = NodePath("BulletHitter")
+move_values = NodePath("BulletMovementValues")
+animated_sprite = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://b7er026mjllw8"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_knn42")
+
+[node name="BulletMovementValues" type="Node2D" parent="."]
+script = ExtResource("3_364h3")
+metadata/_custom_type_script = "uid://df86olo1oqpnl"
+
+[node name="StraightMover" type="Node2D" parent="." node_paths=PackedStringArray("move_values")]
+script = ExtResource("4_4jpnf")
+move_values = NodePath("../BulletMovementValues")
+metadata/_custom_type_script = "uid://c6f0327yq8wqj"
+
+[node name="BulletHitter" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_niv18")
+metadata/_custom_type_script = "uid://c1ixa2ewmgywe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitter"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_tbxd7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="BulletHitter"]
