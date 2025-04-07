@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_ftfob"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_ugcn1"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="3_fkk1g"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/level_3_terrain.tscn" id="3_ftfob"]
+[ext_resource type="PackedScene" uid="uid://c6hyw86ag4xr1" path="res://scenes/terrain/level_3_terrain.tscn" id="3_ftfob"]
 [ext_resource type="Texture2D" uid="uid://ddgitl02djtvv" path="res://images/background3.png" id="4_ftfob"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="5_pimnq"]
 [ext_resource type="PackedScene" uid="uid://j4lf47knpm4f" path="res://scenes/boss/violence_boss.tscn" id="7_fkk1g"]

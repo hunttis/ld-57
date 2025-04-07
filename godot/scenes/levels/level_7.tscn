@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=3 uid="uid://db0p7fvm1vwni"]
+
+[ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_u1w5x"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_posk4"]
+[ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="3_sjq8i"]
+[ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="4_q0wsq"]
+[ext_resource type="PackedScene" uid="uid://rk1cql2l3uax" path="res://scenes/terrain/level_7_terrain.tscn" id="5_u1w5x"]
+[ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="6_wreli"]
+[ext_resource type="PackedScene" uid="uid://cys4why0dlufr" path="res://scenes/enemy/EnemyHarpy.tscn" id="7_sjq8i"]
+[ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="7_ymk4h"]
+[ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="8_q0wsq"]
+[ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="10_q0wsq"]
+
+[sub_resource type="Curve2D" id="Curve2D_q0wsq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 308, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ivh0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -305, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_wreli"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 259, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ymk4h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 251, 0)
+}
+point_count = 2
+
+[node name="Level7" type="Node"]
+script = ExtResource("1_u1w5x")
+
+[node name="FadeOverlay" parent="." instance=ExtResource("2_posk4")]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+offset_left = 1037.0
+offset_top = -34.0
+offset_right = 1037.0
+offset_bottom = -34.0
+
+[node name="Player" parent="." instance=ExtResource("3_sjq8i")]
+modulate = Color(0.776033, 0, 0.24291, 1)
+position = Vector2(1357, 146)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+script = ExtResource("4_q0wsq")
+
+[node name="TerrainScene" parent="." instance=ExtResource("5_u1w5x")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+modulate = Color(0.133507, 0.304728, 0.349933, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_wreli")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" parent="." instance=ExtResource("7_ymk4h")]
+position = Vector2(1357, 146)
+limit_bottom = 360
+limit_smoothed = true
+
+[node name="EnemyHarpy" parent="." instance=ExtResource("7_sjq8i")]
+position = Vector2(150, 34)
+
+[node name="EnemyHarpy2" parent="." instance=ExtResource("7_sjq8i")]
+position = Vector2(60, 270)
+
+[node name="EnemyEye" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(239, 28)
+
+[node name="EnemyEye2" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(527, 31)
+
+[node name="EnemyEye3" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(528, 310)
+
+[node name="EnemyEye4" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(625, 312)
+
+[node name="EnemyEye5" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1033, 284)
+
+[node name="EnemyEye6" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1475, 283)
+
+[node name="EnemyEye7" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1113, 72)
+
+[node name="EnemyEye8" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1448, 45)
+
+[node name="EnemyEye9" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1583, 25)
+
+[node name="EnemyEye10" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(1582, 309)
+
+[node name="CrawlerEnemy" parent="." groups=["Enemy"] instance=ExtResource("10_q0wsq")]
+position = Vector2(1885, 279)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy"]
+curve = SubResource("Curve2D_q0wsq")
+
+[node name="CrawlerEnemy2" parent="." groups=["Enemy"] instance=ExtResource("10_q0wsq")]
+position = Vector2(2172, 54)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy2"]
+curve = SubResource("Curve2D_ivh0c")
+
+[node name="CrawlerEnemy3" parent="." groups=["Enemy"] instance=ExtResource("10_q0wsq")]
+position = Vector2(1910, 181)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy3"]
+curve = SubResource("Curve2D_wreli")
+
+[node name="CrawlerEnemy4" parent="." groups=["Enemy"] instance=ExtResource("10_q0wsq")]
+position = Vector2(2152, 121)
+scale = Vector2(-1, -1)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy4"]
+curve = SubResource("Curve2D_ymk4h")
+
+[node name="EnemyHarpy3" parent="." instance=ExtResource("7_sjq8i")]
+position = Vector2(2884, 207)
+
+[node name="EnemyHarpy4" parent="." instance=ExtResource("7_sjq8i")]
+position = Vector2(2820, 158)
+
+[node name="EnemyEye11" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(2603, 35)
+
+[node name="EnemyEye12" parent="." groups=["Enemy"] instance=ExtResource("8_q0wsq")]
+position = Vector2(844, 38)
