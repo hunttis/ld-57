@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://db0p7fvm1vwni"]
+[gd_scene load_steps=16 format=3 uid="uid://db0p7fvm1vwni"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_u1w5x"]
+[ext_resource type="AudioStream" uid="uid://dn8kxxlifofuq" path="res://music/7. Gluttony.mp3" id="2_ivh0c"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_posk4"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="3_sjq8i"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="4_q0wsq"]
@@ -39,6 +40,7 @@ point_count = 2
 script = ExtResource("1_u1w5x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ivh0c")
 autoplay = true
 bus = &"Music"
 

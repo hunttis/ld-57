@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="7_8qukl"]
 [ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="8_3p04p"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="9_3p04p"]
-[ext_resource type="AudioStream" uid="uid://k01ur5qxcjq8" path="res://music/2. Fraud.mp3" id="11_nt80m"]
+[ext_resource type="AudioStream" uid="uid://caktn5tb3btx5" path="res://music/2. Fraud(1).mp3" id="11_nt80m"]
 
 [sub_resource type="Curve2D" id="Curve2D_8qukl"]
 _data = {

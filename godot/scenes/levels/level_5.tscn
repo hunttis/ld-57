@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="9_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="10_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="11_dwyms"]
-[ext_resource type="AudioStream" uid="uid://cque1k0ra746t" path="res://music/5. Anger.mp3" id="12_6xwso"]
+[ext_resource type="AudioStream" uid="uid://ctxemu573q6u0" path="res://music/5. Anger(1).mp3" id="12_6xwso"]
 
 [sub_resource type="Curve2D" id="Curve2D_tqnj0"]
 _data = {

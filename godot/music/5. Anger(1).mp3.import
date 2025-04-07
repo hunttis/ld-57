@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctxemu573q6u0"
+path="res://.godot/imported/5. Anger(1).mp3-46ee09b4576f1cc96d38b3a6508fb5a0.mp3str"
+
+[deps]
+
+source_file="res://music/5. Anger(1).mp3"
+dest_files=["res://.godot/imported/5. Anger(1).mp3-46ee09b4576f1cc96d38b3a6508fb5a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

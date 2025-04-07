@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfbch3kqgensn"
+path="res://.godot/imported/1. Treachery(1).mp3-8a3c0a8d8b0388cd4c156522e77f249c.mp3str"
+
+[deps]
+
+source_file="res://music/1. Treachery(1).mp3"
+dest_files=["res://.godot/imported/1. Treachery(1).mp3-8a3c0a8d8b0388cd4c156522e77f249c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

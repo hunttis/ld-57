@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="6_qvnao"]
 [ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="7_ts8eg"]
-[ext_resource type="AudioStream" uid="uid://cp31e8e4u5ygd" path="res://music/4. Heresy.mp3" id="9_um320"]
+[ext_resource type="AudioStream" uid="uid://cvm31t6aqggjx" path="res://music/4. Heresy(1).mp3" id="9_um320"]
 
 [node name="Level4" type="Node" groups=["GameScene"]]
 script = ExtResource("1_5vn0v")

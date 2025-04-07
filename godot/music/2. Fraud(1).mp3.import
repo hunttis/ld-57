@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caktn5tb3btx5"
+path="res://.godot/imported/2. Fraud(1).mp3-44d0c0ff9fdcfa59f597a0c93f74af05.mp3str"
+
+[deps]
+
+source_file="res://music/2. Fraud(1).mp3"
+dest_files=["res://.godot/imported/2. Fraud(1).mp3-44d0c0ff9fdcfa59f597a0c93f74af05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
