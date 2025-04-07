@@ -9,8 +9,9 @@ extends Node
 func _ready() -> void:
 	if fade_overlay:
 		fade_overlay.show()
-	camera.limit_right = terrain.get_used_rect().size.x * 32
-	player.limit_right = terrain.get_used_rect().size.x * 32
+	var limit = terrain.get_used_rect().size.x * 32 if terrain != null else 640
+	camera.limit_right = limit
+	player.limit_right = limit
 	camera.reset_smoothing()
 
 func _process(_delta: float) -> void:

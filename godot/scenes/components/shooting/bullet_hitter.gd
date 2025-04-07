@@ -30,7 +30,7 @@ func _process(delta):
 
 func _on_collision(body: Node2D):
 	if body is not Hittable:
-		if body is not Enemy && team != Global.TEAM.Enemy:
+		if body is not Enemy || team != Global.TEAM.Enemy:
 			hit_something.emit(false)
 			stopped.emit(true)
 			return

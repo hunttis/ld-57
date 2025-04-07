@@ -18,7 +18,7 @@ visible = false
 z_index = 100
 
 [node name="Player" parent="." instance=ExtResource("2_7x7cx")]
-position = Vector2(119, 225)
+position = Vector2(459, 326)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -39,7 +39,7 @@ texture = ExtResource("5_b6i88")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" parent="." instance=ExtResource("6_kydov")]
-position = Vector2(119, 225)
+position = Vector2(459, 326)
 limit_bottom = 360
 limit_smoothed = true
 

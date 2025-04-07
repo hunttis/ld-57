@@ -117,3 +117,4 @@ func _physics_process(delta: float) -> void:
 					
 	
 	global_position.y = clamp(0, global_position.y, 360)
+	global_position.x = clamp(0, global_position.x, limit_right)

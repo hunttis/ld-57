@@ -17,6 +17,7 @@ extends Node2D
 	preload("res://scenes/levels/level_4.tscn"),
 	preload("res://scenes/levels/level_5.tscn"),
 	preload("res://scenes/levels/level_6.tscn"),
+	preload("res://scenes/levels/level_9.tscn"),
 ]
 
 @onready var max_levels = len(levels) -1
