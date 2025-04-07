@@ -70,6 +70,7 @@ point_count = 2
 script = ExtResource("1_l37oo")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_qsp8v")]
+unique_name_in_owner = true
 visible = false
 z_index = 10
 
