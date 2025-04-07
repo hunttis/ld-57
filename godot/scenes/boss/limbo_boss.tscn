@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7cmd2w5oxd0m"]
+[gd_scene load_steps=13 format=3 uid="uid://b7cmd2w5oxd0m"]
 
 [ext_resource type="Script" uid="uid://817aaee6eyhg" path="res://scenes/boss/limbo_boss.gd" id="1_vhv2y"]
 [ext_resource type="Texture2D" uid="uid://bss7wtam4oqty" path="res://images/limboboss.png" id="2_13f4f"]
 [ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="2_320e4"]
-[ext_resource type="Script" path="res://scenes/boss/boss_hittable.gd" id="4_34phd"]
+[ext_resource type="Script" uid="uid://dcg7f0rp01s8r" path="res://scenes/boss/boss_hittable.gd" id="4_34phd"]
+[ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="5_bo14n"]
+[ext_resource type="PackedScene" uid="uid://dufvmx4xkx6se" path="res://scenes/components/shooting/bullets/pentagram_bullet.tscn" id="6_lpg8l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vhv2y"]
 animations = [{
@@ -45,7 +47,7 @@ script = ExtResource("2_320e4")
 hitpoints = 100
 damage = 3
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="BossBody"]
+[node name="Sprite" type="AnimatedSprite2D" parent="BossBody"]
 sprite_frames = SubResource("SpriteFrames_vhv2y")
 
 [node name="BodyCollision1" type="CollisionShape2D" parent="BossBody"]
@@ -80,3 +82,17 @@ curve = SubResource("Curve2D_ujgkq")
 position = Vector2(14, -40)
 rotation = 2.1588
 rotates = false
+
+[node name="PentagramGun" type="Node2D" parent="BossBody" node_paths=PackedStringArray("cooldown_timer")]
+position = Vector2(-31, -44)
+script = ExtResource("5_bo14n")
+cooldown = 0.0
+team = 2
+bullet_scene = ExtResource("6_lpg8l")
+bullet_speed = 30.0
+cooldown_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="BossBody/PentagramGun"]
+one_shot = true
+
+[node name="Node2D" type="Node2D" parent="." groups=["GameScene", "Player"]]

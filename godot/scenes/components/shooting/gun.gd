@@ -21,13 +21,16 @@ var can_shoot_time_msec: int = 0
 
 
 func shoot(direction: Vector2):
+	print("gun")
 	if cooldown_timer.is_stopped():
+		print("stopped")
 		if cooldown > 0:
 			cooldown_timer.start(cooldown)
 		var node = bullet_scene.instantiate()
 		get_tree().get_first_node_in_group("GameScene").add_child(node)
 		Global.create_shooting_fx.emit(position)
 		if node is MovingBullet:
+			print("moving bullet")
 			node.global_position = global_position
 			node.shoot(
 				team, direction, bullet_damage,

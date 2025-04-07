@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dufvmx4xkx6se"]
+
+[ext_resource type="Script" uid="uid://b7er026mjllw8" path="res://scenes/components/shooting/moving_bullet.gd" id="1_d8s45"]
+[ext_resource type="PackedScene" uid="uid://b2fjh2kmocdfb" path="res://scenes/components/shooting/bullet_hitter.tscn" id="2_pn24e"]
+[ext_resource type="Script" uid="uid://c6f0327yq8wqj" path="res://scenes/components/shooting/straight_mover.gd" id="3_4tuif"]
+[ext_resource type="Script" uid="uid://df86olo1oqpnl" path="res://scenes/components/shooting/bullet_movement_values.gd" id="4_n5g6g"]
+[ext_resource type="Texture2D" uid="uid://cdsrsrfncd048" path="res://images/pentagram.png" id="5_046og"]
+[ext_resource type="Script" uid="uid://d0lpph6dfcxls" path="res://scenes/components/shooting/bullets/pentagram_scaler.gd" id="6_6oodq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fucs"]
+radius = 50.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8di7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_046og")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Pentagram" type="Node2D" node_paths=PackedStringArray("hitter", "move_values", "animated_sprite")]
+script = ExtResource("1_d8s45")
+hitter = NodePath("BulletHitter")
+move_values = NodePath("StraightMover/MovementValues")
+animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="BulletHitter" parent="." instance=ExtResource("2_pn24e")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BulletHitter"]
+shape = SubResource("CircleShape2D_0fucs")
+
+[node name="StraightMover" type="Node2D" parent="." node_paths=PackedStringArray("move_values")]
+script = ExtResource("3_4tuif")
+move_values = NodePath("MovementValues")
+
+[node name="MovementValues" type="Node2D" parent="StraightMover"]
+script = ExtResource("4_n5g6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_s8di7")
+
+[node name="PentagramScaler" type="Node2D" parent="."]
+script = ExtResource("6_6oodq")
