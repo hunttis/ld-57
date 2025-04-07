@@ -17,4 +17,4 @@ func _process(delta):
 		var shake_offset = Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount))
 		tween.tween_property(self, "global_position", origin + shake_offset, 1.0 / shake_speed)
 		tween.tween_property(self, "global_position", origin, 1.0 / shake_speed)
-		tween.tween_callback(func(): is_shaking = false)
+		tween.tween_property(self, "is_shaking", false, 0.1)
