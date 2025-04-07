@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://camyfaarvrcse"]
+[gd_scene load_steps=8 format=3 uid="uid://b20qgv6lfnvrs"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_xsrpe"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_0kxia"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="3_5umh1"]
-[ext_resource type="PackedScene" uid="uid://51o3nnolbe1n" path="res://scenes/terrain/level_8_terrain.tscn" id="3_ene4w"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/level_8_terrain.tscn" id="3_ene4w"]
 [ext_resource type="Script" uid="uid://cvam05wrqc67r" path="res://scenes/components/camera_forwarding.gd" id="4_v7ucw"]
 [ext_resource type="Texture2D" uid="uid://b4ekmg1xnojjp" path="res://images/background2.png" id="6_kk2ik"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="7_6to6e"]
 
-[node name="Level8" type="Node"]
+[node name="Level8" type="Node" groups=["GameScene"]]
 script = ExtResource("1_xsrpe")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_0kxia")]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c52aoi17lppeo" path="res://scenes/boss/greed_boss.tscn" id="7_7x7cx"]
 [ext_resource type="AudioStream" uid="uid://i4rwq1oj7da" path="res://music/6. Greed.mp3" id="9_e18e5"]
 
-[node name="Level6" type="Node"]
+[node name="Level6" type="Node" groups=["GameScene"]]
 script = ExtResource("1_5wshb")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_b6i88")]

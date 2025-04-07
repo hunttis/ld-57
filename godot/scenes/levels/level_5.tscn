@@ -77,7 +77,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Level5" type="Node"]
+[node name="Level5" type="Node" groups=["GameScene"]]
 script = ExtResource("1_hldbq")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_mxx4w")]

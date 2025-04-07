@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7cmd2w5oxd0m" path="res://scenes/boss/limbo_boss.tscn" id="7_ltlq2"]
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="7_ylwrn"]
 
-[node name="Level9" type="Node"]
+[node name="Level9" type="Node" groups=["GameScene"]]
 script = ExtResource("1_6nuwh")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_m2cpo")]

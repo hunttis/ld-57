@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://decv0hwewv11t" path="res://scenes/enemy/EnemyBanshee.tscn" id="7_ts8eg"]
 [ext_resource type="AudioStream" uid="uid://cp31e8e4u5ygd" path="res://music/4. Heresy.mp3" id="9_um320"]
 
-[node name="Level4" type="Node"]
+[node name="Level4" type="Node" groups=["GameScene"]]
 script = ExtResource("1_5vn0v")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_5vn0v")]

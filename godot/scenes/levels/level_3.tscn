@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://j4lf47knpm4f" path="res://scenes/boss/violence_boss.tscn" id="7_fkk1g"]
 [ext_resource type="AudioStream" uid="uid://cpiq58r3drge5" path="res://music/3. Violence.mp3" id="9_pimnq"]
 
-[node name="Level3" type="Node"]
+[node name="Level3" type="Node" groups=["GameScene"]]
 script = ExtResource("1_fmg3e")
 
 [node name="FadeOverlay" parent="." instance=ExtResource("2_ugcn1")]

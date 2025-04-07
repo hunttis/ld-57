@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://817aaee6eyhg" path="res://scenes/boss/limbo_boss.gd" id="1_vhv2y"]
 [ext_resource type="Texture2D" uid="uid://bss7wtam4oqty" path="res://images/limboboss.png" id="2_13f4f"]
 [ext_resource type="Script" uid="uid://d156vyr6ypobx" path="res://scenes/enemy/types/enemy.gd" id="2_320e4"]
-[ext_resource type="Script" uid="uid://dcg7f0rp01s8r" path="res://scenes/boss/boss_hittable.gd" id="4_34phd"]
+[ext_resource type="Script" path="res://scenes/boss/boss_hittable.gd" id="4_34phd"]
 [ext_resource type="Script" uid="uid://bf2wuul71apu0" path="res://scenes/components/shooting/gun.gd" id="5_bo14n"]
 [ext_resource type="PackedScene" uid="uid://dufvmx4xkx6se" path="res://scenes/components/shooting/bullets/pentagram_bullet.tscn" id="6_lpg8l"]
 [ext_resource type="PackedScene" uid="uid://dkspdqpdq7q4x" path="res://scenes/components/shooting/bullets/plasma_bullet.tscn" id="7_lpg8l"]
