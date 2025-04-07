@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byvwg1errefsj"]
+[gd_scene load_steps=19 format=3 uid="uid://byvwg1errefsj"]
 
 [ext_resource type="Script" uid="uid://b4l1y0uun8oso" path="res://scenes/levels/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://dtsswd23so6bp" path="res://scenes/player/player.tscn" id="2_qpwj6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://davpf7phes46m" path="res://scenes/components/camera_2d.tscn" id="5_3p04p"]
 [ext_resource type="PackedScene" uid="uid://ctjkwcao83u3g" path="res://scenes/enemy/EnemyEye.tscn" id="7_8qukl"]
 [ext_resource type="PackedScene" uid="uid://cekn2rrp0ho5j" path="res://scenes/enemy/EnemyCrawler.tscn" id="8_3p04p"]
+[ext_resource type="PackedScene" uid="uid://n63imw4wyujs" path="res://scenes/enemy/EnemyFlies.tscn" id="9_3p04p"]
 
 [sub_resource type="Curve2D" id="Curve2D_8qukl"]
 _data = {
@@ -27,11 +28,47 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_nt80m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -44.7129, 30.3691, 44.7129, -30.3691, 6, -47, 8.70516, -32.3476, -8.70516, 32.3476, 57, -23, 0, 0, 0, 0, -35, 24)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_brxtv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 41.2407, -20.0219, -41.2407, 20.0219, 5, 24, -5.54954, 36.6705, 5.54954, -36.6705, 43, 41)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_tv7cl"]
+_data = {
+"points": PackedVector2Array(0, 0, 53.6893, 80.9322, 0, 0, 0, 0, 53.6893, 80.9322, 44, -44)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_r88tb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -102, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1yj8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ndlae"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46, 0)
+}
+point_count = 2
+
 [node name="Level2" type="Node"]
 script = ExtResource("1_l37oo")
 
 [node name="TerrainScene" parent="." instance=ExtResource("3_qpwj6")]
-position = Vector2(0, 9)
+position = Vector2(88, -7)
 
 [node name="Player" parent="." instance=ExtResource("2_qpwj6")]
 modulate = Color(0.776033, 0, 0.24291, 1)
@@ -58,16 +95,7 @@ limit_bottom = 360
 limit_smoothed = true
 
 [node name="EnemyEye" parent="." instance=ExtResource("7_8qukl")]
-position = Vector2(71, 43)
-
-[node name="EnemyEye2" parent="." instance=ExtResource("7_8qukl")]
-position = Vector2(69, 303)
-
-[node name="EnemyEye3" parent="." instance=ExtResource("7_8qukl")]
-position = Vector2(736, 70)
-
-[node name="EnemyEye4" parent="." instance=ExtResource("7_8qukl")]
-position = Vector2(854, 206)
+position = Vector2(57, 32)
 
 [node name="EnemyEye5" parent="." instance=ExtResource("7_8qukl")]
 position = Vector2(1003, 47)
@@ -95,3 +123,47 @@ scale = Vector2(-1, -1)
 
 [node name="Path2D" type="Path2D" parent="CrawlerEnemy3"]
 curve = SubResource("Curve2D_3p04p")
+
+[node name="EnemyFlies" parent="." instance=ExtResource("9_3p04p")]
+position = Vector2(291, 94)
+
+[node name="Path2D" type="Path2D" parent="EnemyFlies"]
+curve = SubResource("Curve2D_nt80m")
+
+[node name="EnemyFlies2" parent="." instance=ExtResource("9_3p04p")]
+position = Vector2(476, 192)
+
+[node name="Path2D" type="Path2D" parent="EnemyFlies2"]
+curve = SubResource("Curve2D_brxtv")
+
+[node name="EnemyFlies3" parent="." instance=ExtResource("9_3p04p")]
+position = Vector2(826, 173)
+
+[node name="Path2D" type="Path2D" parent="EnemyFlies3"]
+curve = SubResource("Curve2D_tv7cl")
+
+[node name="CrawlerEnemy4" parent="." instance=ExtResource("8_3p04p")]
+position = Vector2(1938, 158)
+scale = Vector2(-1, -1)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy4"]
+position = Vector2(101, 0)
+curve = SubResource("Curve2D_r88tb")
+
+[node name="CrawlerEnemy5" parent="." instance=ExtResource("8_3p04p")]
+position = Vector2(1968, 122)
+scale = Vector2(-1, -1)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy5"]
+curve = SubResource("Curve2D_1yj8c")
+
+[node name="CrawlerEnemy6" parent="." instance=ExtResource("8_3p04p")]
+position = Vector2(1808, 188)
+scale = Vector2(-1, -1)
+
+[node name="Path2D" type="Path2D" parent="CrawlerEnemy6"]
+position = Vector2(-3, 0)
+curve = SubResource("Curve2D_ndlae")
+
+[node name="EnemyEye2" parent="." instance=ExtResource("7_8qukl")]
+position = Vector2(2264, 225)
