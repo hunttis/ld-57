@@ -189,6 +189,7 @@ curve = SubResource("Curve2D_v6ha0")
 
 [node name="EnemyFlies12" parent="." instance=ExtResource("7_dga24")]
 position = Vector2(2809.94, 104.677)
+slowness = 3
 
 [node name="Path2D" type="Path2D" parent="EnemyFlies12"]
 curve = SubResource("Curve2D_gmpev")
