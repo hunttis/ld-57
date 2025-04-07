@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=16 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" uid="uid://cycq77v66fnnx" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
@@ -7,6 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
 [ext_resource type="Texture2D" uid="uid://bg6xf8oibcfxp" path="res://images/background4.png" id="4_wbyn4"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
+[ext_resource type="PackedScene" uid="uid://cgjpircqdt210" path="res://scenes/particle_fx/AmmoHit.tscn" id="8_ahc2o"]
+[ext_resource type="PackedScene" uid="uid://brj3glnht1wds" path="res://scenes/particle_fx/BatLeave.tscn" id="9_3xocm"]
+[ext_resource type="PackedScene" uid="uid://cwwmslgjs7fnn" path="res://scenes/particle_fx/EnemyDeath.tscn" id="10_btctn"]
+[ext_resource type="PackedScene" uid="uid://bb8yogcnqxpdc" path="res://scenes/particle_fx/EnemyHit.tscn" id="11_3m2fd"]
+[ext_resource type="PackedScene" uid="uid://cd6mktqe67igx" path="res://scenes/particle_fx/NondamagingHit.tscn" id="12_7mbhd"]
+[ext_resource type="PackedScene" uid="uid://tx4vju5600sn" path="res://scenes/particle_fx/PlayerHit.tscn" id="13_tnhd2"]
+[ext_resource type="PackedScene" uid="uid://b5myreapc2gyq" path="res://scenes/particle_fx/Teleport.tscn" id="14_583w3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
 font_size = 8
@@ -89,3 +96,24 @@ visible = false
 stream = ExtResource("6_drnm6")
 autoplay = true
 bus = &"Music"
+
+[node name="AmmoHit" parent="." instance=ExtResource("8_ahc2o")]
+position = Vector2(-142, 163)
+
+[node name="BatLeave" parent="." instance=ExtResource("9_3xocm")]
+position = Vector2(-137, 183)
+
+[node name="EnemyDeath" parent="." instance=ExtResource("10_btctn")]
+position = Vector2(-91, 214)
+
+[node name="EnemyHit" parent="." instance=ExtResource("11_3m2fd")]
+position = Vector2(-116, 233)
+
+[node name="NondamagingHit" parent="." instance=ExtResource("12_7mbhd")]
+position = Vector2(-109, 219)
+
+[node name="PlayerHit" parent="." instance=ExtResource("13_tnhd2")]
+position = Vector2(-97, 225)
+
+[node name="BatLeaveDown" parent="." instance=ExtResource("14_583w3")]
+position = Vector2(-124, 234)
