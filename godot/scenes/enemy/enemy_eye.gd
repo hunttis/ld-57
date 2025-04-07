@@ -7,6 +7,7 @@ var origin: Vector2
 var is_shaking: bool = false
 
 func _ready():
+	super ()
 	origin = global_position
 
 func _process(delta):

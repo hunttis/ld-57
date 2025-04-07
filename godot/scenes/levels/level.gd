@@ -1,9 +1,11 @@
 extends Node
 
 @onready var camera: Camera2D = $Camera2D
-@onready var terrain: TileMapLayer  = $TerrainScene/Terrain
+@onready var terrain: TileMapLayer = $TerrainScene/Terrain
 @onready var player := $Player
 @onready var fade_overlay := %FadeOverlay
+
+@export var level_music: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
